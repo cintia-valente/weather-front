@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "../../ui/components/Button";
 import axios from "axios";
-
 import './index.css'
 interface State {
     state: string;
