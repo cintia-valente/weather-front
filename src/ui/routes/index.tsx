@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes, Navigate, useRoutes } from "react-router-dom";
-import Header from "../components/header/Header";
+import { RegisterWeather } from "../../pages/RegisterWeather";
 
-const Router = () => {
+export const Router = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<Header />} />
+                <Route path="/" element={<RegisterWeather />} />
                 {/* <Route path="/" element={<Navigate to="/home" />} /> */}
             </Routes>
         </BrowserRouter>
     );
 }
 
-export default Router;
+

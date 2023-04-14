@@ -1,10 +1,8 @@
-import Router from "./ui/routes";
+import { Router } from "./ui/routes";
 
-function App() {
+export function App() {
   return (
     <Router />  
-
   );
 }
 
-export default App;
