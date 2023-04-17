@@ -87,24 +87,16 @@ export function RegisterWeather() {
 
           <div>
             <label className="text-register">Turno </label>
-            <div className="fields-weather">
-              <select className="select-shift">
-                <option>Dia</option>
-                <option>Noite</option>
-              </select>
-            </div>
-            <div className="fields-weather">
-              <select className="select-shift">
-                <option>Dia</option>
-                <option>Noite</option>
-              </select>
+            <div className="field-shift">
+              <input className="input-max" value="Dia"></input>
+              <input className="input-max" value="Noite"></input>
             </div>
           </div>
         </div>
 
         <div className="max">
-          <div className="fields-temp">
-            <label>Temperatura Máxima </label>
+          <div className="fields-temp-max">
+            <label className="text-fields">Temperatura Máxima </label>
             <div className="max-temperature">
               <input className="input-max"></input>
             </div>
@@ -112,14 +104,14 @@ export function RegisterWeather() {
 
           <div className="precipitation-humidity">
             <div className="label-field">
-              <label>Precipitação </label>
+              <label className="text-fields">Precipitação </label>
 
               <div className="precipitation">
                 <input className="input-precipitation"></input>
               </div>
             </div>
             <div className="label-field">
-              <label>Humidade </label>
+              <label className="text-fields">Humidade </label>
               <div className="humidity">
                 <input className="input-humidity"></input>
               </div>
@@ -128,8 +120,8 @@ export function RegisterWeather() {
         </div>
 
         <div className="min">
-          <div className="fields-temp">
-            <label>Temperatura Mínma </label>
+          <div className="fields-temp-min">
+            <label className="text-fields">Temperatura Mínma </label>
             <div className="min-temperature">
               <input className="input-min"></input>
             </div>
@@ -137,7 +129,7 @@ export function RegisterWeather() {
 
           <div>
             <div>
-              <label>Velocidade do vento </label>
+              <label className="text-fields">Velocidade do vento </label>
               <div className="wind-speed">
                 <input className="input-speed"></input>
               </div>

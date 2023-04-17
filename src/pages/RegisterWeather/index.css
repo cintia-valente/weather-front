@@ -22,29 +22,45 @@
     margin-top: 0.5rem;
 }
 
-.fields-temp {
+.fields-temp-max{
+    margin-bottom: 0.8rem;
+}
+
+.fields-temp-min {
     margin-bottom: 2rem;
 }
 
 .title-register {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     margin-left: 1rem;
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Poppins';
+    font-style: normal;
 }
 
 .text-register {
     padding: 1rem;
     font-family: 'Poppins';
-    font-style: normal;
+    font-weight: 600;
+    line-height: 0.75rem;
+}
+
+.text-fields {
+    font-weight: 600;
+    font-family: 'Poppins';
     font-weight: 600;
     line-height: 0.75rem;
 }
 
 .text-state {
     padding: 1.1rem;
+    font-weight: 600;
 }
 
 .text-date {
     padding: 1.7rem;
+    font-weight: 600;
 }
 
 .fields {
@@ -62,15 +78,11 @@
     background-color: #523D7F;
 }
 
-.select-shift {
-    width: 4.38rem;
-    height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 4rem;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-    color: white;
-    background-color: #523D7F;
+.field-shift {
+    display: grid;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
 }
 
 .input-date {
@@ -111,9 +123,9 @@
 }
 
 .max {
-    margin-right: 5rem;
+    margin-right: 4rem;
     margin-top: 3rem;
-    padding-left: 1rem;
+    padding-left: 2rem;
 }
 
 .max-temperature {
@@ -124,13 +136,13 @@
     margin-top: 3rem;
 }  
 
-.min-temprature {
+.min-temperature {
     margin-top: 0.5rem;
 }
 
 .input-max {
-    height: 2.5rem;
-    margin-right: 1.88rem;
+    margin-bottom: 1.5rem;
+    height: 2.2rem;
     border-radius: 0.5rem;
     width: 3rem;
     color: white;
@@ -164,6 +176,10 @@
     background: linear-gradient(180deg, #957DCD , #523D7F );
 }
 
+.wind-speed {
+    margin-top: 0.5rem;
+}
+
 .input-speed {
     height: 2.5rem;
     margin-right: 1.88rem;
@@ -180,6 +196,14 @@
 
 .precipitation-humidity {
     display: flex;
+}
+
+.precipitation {
+    margin-top: 0.5rem;
+}
+
+.humidity {
+    margin-top: 0.5rem;
 }
 
 .btn {
