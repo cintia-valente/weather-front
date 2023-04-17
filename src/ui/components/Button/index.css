@@ -1,8 +1,8 @@
 .btn-register {
     background: linear-gradient(180deg, #957DCD , #523D7F );
-    border-radius: 15px;
-    margin-left: 27px;
-    margin-right: 27px;
+    border-radius: 0.9rem;
+    margin-left: 1.68rem;
+    margin-right: 1.68rem;
 }
 
 .btn-register:hover {
