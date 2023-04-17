@@ -1,3 +1,10 @@
 .btn-register {
-    width: 70px;
+    background: linear-gradient(180deg, #957DCD , #523D7F );
+    border-radius: 15px;
+    margin-left: 27px;
+    margin-right: 27px;
+}
+
+.btn-register:hover {
+    cursor: pointer;
 }

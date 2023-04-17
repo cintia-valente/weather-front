@@ -1,0 +1,86 @@
+.register{
+    margin-left: 7rem;
+    font-size: 1.25rem;
+    margin-top: 2rem;
+}
+
+.text-search {
+    display: flex;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+}
+
+.title-home {
+    margin-right: 39rem;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.input-search {
+    margin-left: 1.5rem;
+    color: floralwhite;
+}
+
+.select {
+    width: 4,38rem;
+    height: 1.57rem;
+    margin-right: 1.88rem;
+}
+
+.fields {
+    display: flex;
+}
+
+select {
+    background: linear-gradient(180deg, #957DCD , #523D7F );
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 7rem;
+}
+
+.weather-shift {
+    display: flex;
+}
+
+.search {
+    background-image: url('../../assets/search.svg');
+    background-size: 20px 20px;
+    background-position: 5% 50%; 
+    background-repeat: no-repeat;
+    padding-left: 1.57rem; 
+    background: linear-gradient(180deg, #957DCD , #523D7F );
+    border-radius: 0.9rem;
+    opacity: 0.5;
+    width: 17rem;
+    height: 2.2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: white;
+}
+
+.search::before { /* ajusta a cor da imagem para branco */
+    filter: invert(1);
+}
+
+.position-img {
+    position: absolute;
+}
+
+.weather-today {
+    text-align: end;
+}
+
+.img-today {
+    margin-right: 48rem;
+}
+
+.card-home {
+    background: linear-gradient(260deg, #957DCD 29%, #523D7F 100%);
+    border-radius: 0.6rem;
+    margin-left: 0.5rem;
+    margin-right: 7rem;
+    height: 8rem;
+}
