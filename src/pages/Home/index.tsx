@@ -42,7 +42,7 @@ export function Home() {
   }
 
   return (
-    <div className="register">
+    <div className="home">
       <div className="text-search">
         <div className="title-home">Hoje</div>
 
