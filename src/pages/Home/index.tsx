@@ -13,6 +13,7 @@ import precipitation from "../../assets/precipitation.svg";
 import humidity from "../../assets/humidity.svg";
 import snow from "../../assets/snow.svg";
 import windSpeed from "../../assets/wind-speed.svg";
+
 import "./index.css";
 
 interface State {
@@ -59,25 +60,107 @@ export function Home() {
         <div className="weather-today">
           <span className="img-today">
             <img src={sunWithClouds} width="100px" />
+            <div>23°/</div>
+            <div>17°</div>
           </span>
 
-          <span>
-            <img src={precipitation} width="50px" />
-            <img src={humidity} width="50px" />
-            <img src={windSpeed} width="50px" />
-          </span>
+          <div className="fields">
+            <div>
+              <img src={precipitation} width="50px" />
+              <div>30% </div>
+              <div>Precipitação</div>
+            </div>
+
+            <div>
+              <img src={humidity} width="50px" />
+              <div>30% </div>
+              <div>Humidade</div>
+            </div>
+
+            <div>
+              <img src={windSpeed} width="50px" />
+              <div>9Km/h</div>
+              <div>Velocidadade do vento</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <img src={rainyNight} />
-      <img src={rainyDay} />
-      <img src={storm} />
+      <table>
+        <tr>
+          <td>31/03/2023</td>
+          <td>
+            <div>
+              <img src={sun} height="45px" />
+              Sol
+            </div>
+          </td>
+          <td>
+            <div>+31 +51</div>
+          </td>
+        </tr>
 
-      <img src={sun} />
-      <img src={cloudyNight} />
-      <img src={cloudyDay} />
-      <img src={snow} />
-      <img src={moon} height="53px" />
+        <tr>
+          <td>01/04/2023</td>
+          <td>
+            <div>
+              <img src={sunWithClouds} height="40px" />
+              Sol com nuvens
+            </div>
+          </td>
+          <td>
+            <div>+31 +51</div>
+          </td>
+        </tr>
+        <tr>
+          <td>02/04/2023</td>
+          <td>
+            <div>
+              <img src={storm} height="45px" />
+              Tempestade
+            </div>
+          </td>
+          <td>
+            <div>+31 +51</div>
+          </td>
+        </tr>
+        <tr>
+          <td>03/04/2023</td>
+          <td>
+            <div>
+              <img src={rainyNight} height="45px" />
+              Chuva
+            </div>
+          </td>
+          <td>
+            <div>+31 +51</div>
+          </td>
+        </tr>
+        <tr>
+          <td>04/04/2023</td>
+          <td>
+            <div>
+              <img src={snow} height="45px" />
+              Neve
+            </div>
+          </td>
+          <td>
+            <div>+31 +51</div>
+          </td>
+        </tr>
+        <tr>
+          <td>05/04/2023</td>
+          <td>
+            <div>
+              <img src={rainyNight} height="45px" />
+              Chuva
+            </div>
+          </td>
+          <td>
+            <div>+31 +51</div>
+          </td>
+        </tr>
+      </table>
     </div>
   );
 }

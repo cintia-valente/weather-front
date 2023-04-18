@@ -70,7 +70,11 @@ select {
 }
 
 .weather-today {
-    text-align: end;
+    display: flex;
+}
+
+.fields {
+    display: flex;
 }
 
 .img-today {
