@@ -4,6 +4,25 @@
     margin-top: 2rem;
 }
 
+.title-register {
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.fields {
+    display: flex;
+}
+
+.text-state {
+    padding: 1.1rem;
+    font-weight: 600;
+    margin-right: 20rem;
+}
+
 .select-register {
     width: 4.38rem;
     height: 2.5rem;
@@ -22,42 +41,6 @@
     margin-top: 2rem;
 }
 
-.fields-weather {
-    margin-bottom: 1.5rem;
-    margin-top: 0.5rem;
-}
-
-.fields-temp {
-    margin-bottom: 0.8rem;
-}
-.title-register {
-    margin-bottom: 2rem;
-    margin-left: 1rem;
-    font-weight: 600;
-    font-size: 2rem;
-    font-family: 'Poppins';
-    font-style: normal;
-}
-
-.text-register {
-    padding: 1rem;
-    font-family: 'Poppins';
-    font-weight: 600;
-    line-height: 0.75rem;
-}
-
-.text-fields {
-    font-weight: 600;
-    font-family: 'Poppins';
-    font-weight: 600;
-    line-height: 0.75rem;
-}
-
-.text-state {
-    padding: 1.1rem;
-    font-weight: 600;
-}
-
 .text-city {
     margin-left: 1rem;
 }
@@ -65,28 +48,6 @@
 .text-date {
     padding: 1.7rem;
     font-weight: 600;
-}
-
-.fields {
-    display: flex;
-}
-
-.select-weather {
-    width: 4.38rem;
-    height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 9rem;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-    color: white;
-    background-color: #523D7F;
-}
-
-.field-shift {
-    display: grid;
-    margin-bottom: 1.5rem;
-    margin-top: 0.5rem;
-    margin-left: 1rem;
 }
 
 .input-date {
@@ -122,26 +83,35 @@
     margin-top: 3rem;
 }
 
-.text-state {
-    margin-right: 20rem;
+.text-register {
+    padding: 1rem;
+    font-family: 'Poppins';
+    font-weight: 600;
+    line-height: 0.75rem;
 }
 
-.max {
-    margin-right: 4rem;
-    margin-top: 3rem;
-    padding-left: 2rem;
-}
 
-.max-temperature {
+.fields-weather {
+    margin-bottom: 1.5rem;
     margin-top: 0.5rem;
 }
 
-.min {
-    margin-top: 3rem;
-}  
+.select-weather {
+    width: 4.38rem;
+    height: 2.5rem;
+    margin-right: 1.88rem;
+    border-radius: 0.5rem;
+    width: 9rem;
+    background: linear-gradient(180deg, #957DCD , #523D7F );
+    color: white;
+    background-color: #523D7F;
+}
 
-.min-temperature {
+.field-shift {
+    display: grid;
+    margin-bottom: 1.5rem;
     margin-top: 0.5rem;
+    margin-left: 1rem;
 }
 
 .input-shift {
@@ -151,6 +121,43 @@
     width: 3rem;
     color: white;
     background: linear-gradient(180deg, #957DCD , #523D7F );
+}
+
+.max {
+    margin-right: 4rem;
+    margin-top: 3rem;
+    padding-left: 2rem;
+}
+
+.fields-temp {
+    margin-bottom: 0.8rem;
+}
+
+.text-fields {
+    font-weight: 600;
+    font-family: 'Poppins';
+    font-weight: 600;
+    line-height: 0.75rem;
+}
+
+.max-temperature {
+    margin-top: 0.5rem;
+}
+
+/* .fields-input {
+    margin-top: 0.5rem;
+} */
+
+.min {
+    margin-top: 3rem;
+}  
+
+.min-temperature {
+    margin-top: 0.5rem;
+}
+
+.fields-input {
+    margin-top: 0.5rem;
 }
 
 .input-temp {
@@ -175,21 +182,13 @@
     background: linear-gradient(180deg, #957DCD , #523D7F );
 }
 
-.label-field {
-    display: flow-root;
-    margin-right: 4rem;
-}
-
 .precipitation-humidity {
     display: flex;
 }
 
-.fields-input {
-    margin-top: 0.5rem;
-}
-
-.fields-input {
-    margin-top: 0.5rem;
+.label-field {
+    display: flow-root;
+    margin-right: 4rem;
 }
 
 .btn {
