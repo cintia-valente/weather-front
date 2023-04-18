@@ -17,19 +17,19 @@
     background-color: #523D7F;
 }
 
+.select-city {
+    display: block;
+    margin-top: 2rem;
+}
+
 .fields-weather {
     margin-bottom: 1.5rem;
     margin-top: 0.5rem;
 }
 
-.fields-temp-max{
+.fields-temp {
     margin-bottom: 0.8rem;
 }
-
-.fields-temp-min {
-    margin-bottom: 2rem;
-}
-
 .title-register {
     margin-bottom: 2rem;
     margin-left: 1rem;
@@ -56,6 +56,10 @@
 .text-state {
     padding: 1.1rem;
     font-weight: 600;
+}
+
+.text-city {
+    margin-left: 1rem;
 }
 
 .text-date {
@@ -140,7 +144,7 @@
     margin-top: 0.5rem;
 }
 
-.input-max {
+.input-shift {
     margin-bottom: 1.5rem;
     height: 2.2rem;
     border-radius: 0.5rem;
@@ -149,27 +153,9 @@
     background: linear-gradient(180deg, #957DCD , #523D7F );
 }
 
-.input-precipitation{
+.input-temp {
+    margin-bottom: 1.5rem;
     height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 3rem;
-    color: white;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-}
-
-.input-humidity {
-    height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 3rem;
-    color: white;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-}
-
-.input-min {
-    height: 2.5rem;
-    margin-right: 1.88rem;
     border-radius: 0.5rem;
     width: 3rem;
     color: white;
@@ -198,11 +184,11 @@
     display: flex;
 }
 
-.precipitation {
+.fields-input {
     margin-top: 0.5rem;
 }
 
-.humidity {
+.fields-input {
     margin-top: 0.5rem;
 }
 

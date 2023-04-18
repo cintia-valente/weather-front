@@ -8,6 +8,7 @@ interface State {
 
 export function RegisterWeather() {
   const [states, setStates] = useState<State[]>([]);
+  const [selectedState, setSelectedState] = useState("");
 
   useEffect(() => {
     axios
@@ -33,10 +34,14 @@ export function RegisterWeather() {
       <div className="title-register">Cadastro Metereológico</div>
 
       <div className="fields">
-        <div>
+        <div className="select-state">
           <label className="text-state">Estado </label>
           <div className="list-states">
-            <select className="select-register">
+            <select
+              className="select-register"
+              value={selectedState}
+              onChange={(e) => setSelectedState(e.target.value)}
+            >
               {states.map((item) => (
                 <option key={item.state} value={item.state}>
                   {item.state}
@@ -44,19 +49,28 @@ export function RegisterWeather() {
               ))}
             </select>
           </div>
+          <div>
+            {selectedState && (
+              <div className="select-city">
+                <label className="text-city">Cidade </label>
+                <div className="list-cities">
+                  <select className="select-register">
+                    {states.map((item) => (
+                      <option key={item.state} value={item.state}>
+                        {item.state}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div>
           <label className="text-date">Data </label>
           <div className="date">
-            <input
-              className="input-date"
-              type="date"
-              //   class="form-control"
-              //   formControlName="date"
-              //   data-cy="date"
-              //   required
-            />
+            <input className="input-date" type="date" />
           </div>
         </div>
       </div>
@@ -72,15 +86,16 @@ export function RegisterWeather() {
                 <option>Sol com nuves</option>
                 <option>Sol</option>
                 <option>Nublado</option>
+                <option>Neve</option>
               </select>
             </div>
             <div className="fields-weather">
               <select className="select-weather">
                 <option>Chuva</option>
                 <option>Tempestade</option>
-                <option>Sol com nuves</option>
-                <option>Sol</option>
+                <option>Limpo</option>
                 <option>Nublado</option>
+                <option>Neve</option>
               </select>
             </div>
           </div>
@@ -88,17 +103,17 @@ export function RegisterWeather() {
           <div>
             <label className="text-register">Turno </label>
             <div className="field-shift">
-              <input className="input-max" value="Dia"></input>
-              <input className="input-max" value="Noite"></input>
+              <input className="input-shift" value="Dia"></input>
+              <input className="input-shift" value="Noite"></input>
             </div>
           </div>
         </div>
 
         <div className="max">
-          <div className="fields-temp-max">
+          <div className="fields-temp">
             <label className="text-fields">Temperatura Máxima </label>
             <div className="max-temperature">
-              <input className="input-max"></input>
+              <input className="input-temp"></input>
             </div>
           </div>
 
@@ -106,24 +121,24 @@ export function RegisterWeather() {
             <div className="label-field">
               <label className="text-fields">Precipitação </label>
 
-              <div className="precipitation">
-                <input className="input-precipitation"></input>
+              <div className="fields-input">
+                <input className="input-temp"></input>
               </div>
             </div>
             <div className="label-field">
               <label className="text-fields">Humidade </label>
-              <div className="humidity">
-                <input className="input-humidity"></input>
+              <div className="fields-input">
+                <input className="input-temp"></input>
               </div>
             </div>
           </div>
         </div>
 
         <div className="min">
-          <div className="fields-temp-min">
+          <div className="fields-temp">
             <label className="text-fields">Temperatura Mínma </label>
             <div className="min-temperature">
-              <input className="input-min"></input>
+              <input className="input-temp"></input>
             </div>
           </div>
 
