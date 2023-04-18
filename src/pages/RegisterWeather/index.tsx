@@ -6,9 +6,16 @@ interface State {
   state: string;
 }
 
+interface City {
+  cityId: number;
+  name: string;
+}
+
 export function RegisterWeather() {
   const [states, setStates] = useState<State[]>([]);
+  const [cities, setCities] = useState<City[]>([]);
   const [selectedState, setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
 
   useEffect(() => {
     axios
@@ -20,6 +27,21 @@ export function RegisterWeather() {
         console.log(error);
       });
   }, []);
+
+  useEffect(() => {
+    if (selectedState) {
+      axios
+        .get(
+          `http://localhost:4767/api/v1/weather/city/${selectedState}/all-cities`
+        )
+        .then((response) => {
+          setCities(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [selectedState]);
 
   function register() {
     alert("Cadastrado com sucesso!");
@@ -39,9 +61,12 @@ export function RegisterWeather() {
           <div className="list-states">
             <select
               className="select-register"
-              value={selectedState}
+              defaultValue={selectedState}
               onChange={(e) => setSelectedState(e.target.value)}
             >
+              <option value="" disabled selected>
+                Selecione um estado
+              </option>
               {states.map((item) => (
                 <option key={item.state} value={item.state}>
                   {item.state}
@@ -54,10 +79,17 @@ export function RegisterWeather() {
               <div className="select-city">
                 <label className="text-city">Cidade </label>
                 <div className="list-cities">
-                  <select className="select-register">
-                    {states.map((item) => (
-                      <option key={item.state} value={item.state}>
-                        {item.state}
+                  <select
+                    className="select-register"
+                    defaultValue={selectedCity}
+                    onChange={(e) => setSelectedCity(e.target.value)}
+                  >
+                    <option value="" disabled selected>
+                      Selecione uma cidade
+                    </option>
+                    {cities.map((item) => (
+                      <option key={item.name} value={item.name}>
+                        {item.name}
                       </option>
                     ))}
                   </select>
