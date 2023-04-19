@@ -33,7 +33,7 @@ export function RegisterWeather() {
     <div className="register">
       <div className="title-register">Cadastro Metereológico</div>
 
-      <div className="fields">
+      <div className="fields-register">
         <div className="select-state">
           <label className="text-state">Estado </label>
           <div className="list-states">
@@ -136,7 +136,7 @@ export function RegisterWeather() {
 
         <div className="min">
           <div className="fields-temp">
-            <label className="text-fields">Temperatura Mínma </label>
+            <label className="text-fields">Temperatura Mínima </label>
             <div className="min-temperature">
               <input className="input-temp"></input>
             </div>
