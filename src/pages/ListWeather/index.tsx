@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { Button } from "../../ui/components/Button";
 import axios from "axios";
 import "./index.css";
-import location from "../../assets/location.svg";
 import editIcon from "../../assets/edit.svg";
 import deleteIcon from "../../assets/delete.svg";
 import searchList from "../../assets/search-city.svg";

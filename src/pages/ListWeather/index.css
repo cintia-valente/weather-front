@@ -11,8 +11,8 @@
     font-style: normal;
 }
 
-.title-seacrh {
-    margin-left: 4rem;
+.img-search:hover {
+    cursor: pointer;
 }
 
 .label-input {
