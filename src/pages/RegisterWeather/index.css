@@ -36,6 +36,10 @@
     background-color: #523D7F;
 }
 
+.select-register:hover {
+    cursor: pointer;
+}
+
 .select-city {
     display: block;
     margin-top: 2rem;
@@ -63,6 +67,10 @@
     height: 2.5rem;
     color: white;
     margin-top: 0.5rem;
+}
+
+.input-date:hover {
+    cursor: pointer;
 }
 
 .card-weather {
@@ -108,6 +116,10 @@
     background-color: #523D7F;
 }
 
+.select-weather:hover {
+    cursor: pointer;
+}
+
 .field-shift {
     display: grid;
     margin-bottom: 1.5rem;
@@ -144,10 +156,6 @@
     margin-top: 0.5rem;
 }
 
-/* .fields-input {
-    margin-top: 0.5rem;
-} */
-
 .min {
     margin-top: 3rem;
 }  
@@ -167,6 +175,10 @@
     width: 3rem;
     color: white;
     background: linear-gradient(180deg, #957DCD , #523D7F );
+}
+
+.input-temp:hover {
+    cursor: pointer;
 }
 
 .wind-speed {

@@ -71,9 +71,11 @@ select {
     margin-top: 0.1rem;
 }
  
-.search::before { /* ajusta a cor da imagem para branco */
-    filter: invert(1);
+
+.search:hover {
+    cursor: pointer;
 }
+
 
 .icon-search {
     position: absolute;

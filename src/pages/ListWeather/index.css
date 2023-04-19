@@ -82,6 +82,14 @@
     margin-right: 1rem;
 }
 
+.editIcon:hover {
+    cursor: pointer;
+}
+
 .deleteIcon {
     margin-right: 0rem;
+}
+
+.deleteIcon:hover {
+    cursor: pointer;
 }
