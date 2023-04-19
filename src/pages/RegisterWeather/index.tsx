@@ -42,6 +42,9 @@ export function RegisterWeather() {
               value={selectedState}
               onChange={(e) => setSelectedState(e.target.value)}
             >
+              <option value="" disabled selected>
+                Selecione um estado
+              </option>
               {states.map((item) => (
                 <option key={item.state} value={item.state}>
                   {item.state}
@@ -55,6 +58,9 @@ export function RegisterWeather() {
                 <label className="text-city">Cidade </label>
                 <div className="list-cities">
                   <select className="select-register">
+                    <option value="" disabled selected>
+                      Selecione uma cidade
+                    </option>
                     {states.map((item) => (
                       <option key={item.state} value={item.state}>
                         {item.state}
