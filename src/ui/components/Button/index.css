@@ -3,6 +3,8 @@
     border-radius: 0.9rem;
     margin-left: 1.68rem;
     margin-right: 1.68rem;
+    height: 3rem;
+    border-radius: 11rem
 }
 
 .btn-register:hover {

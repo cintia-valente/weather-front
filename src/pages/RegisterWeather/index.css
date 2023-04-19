@@ -13,7 +13,7 @@
     font-style: normal;
 }
 
-.fields {
+.fields-register {
     display: flex;
 }
 
@@ -43,6 +43,7 @@
 
 .text-city {
     margin-left: 1rem;
+    font-weight: 600;
 }
 
 .text-date {
@@ -124,9 +125,8 @@
 }
 
 .max {
-    margin-right: 4rem;
+    margin-right: 2rem;
     margin-top: 3rem;
-    padding-left: 2rem;
 }
 
 .fields-temp {
