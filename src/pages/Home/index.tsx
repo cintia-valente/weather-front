@@ -65,7 +65,8 @@ export function Home() {
             </div>
             <div className="max-min">
               <div>23</div>°<div>/</div>
-              <div>17°</div>
+              <div>17</div>
+              <div>°</div>
             </div>
           </div>
 
