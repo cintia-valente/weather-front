@@ -178,7 +178,7 @@ export function RegisterWeather() {
             <div>
               <label className="text-fields">Velocidade do vento </label>
               <div className="wind-speed">
-                <input className="input-speed"></input>
+                <input className="input-temp"></input>
               </div>
             </div>
           </div>
