@@ -6,8 +6,16 @@ interface State {
   state: string;
 }
 
+interface City {
+  cityId: number;
+  name: string;
+}
+
 export function RegisterWeather() {
   const [states, setStates] = useState<State[]>([]);
+  const [cities, setCities] = useState<City[]>([]);
+  const [selectedState, setSelectedState] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
 
   useEffect(() => {
     axios
@@ -19,6 +27,21 @@ export function RegisterWeather() {
         console.log(error);
       });
   }, []);
+
+  useEffect(() => {
+    if (selectedState) {
+      axios
+        .get(
+          `http://localhost:4767/api/v1/weather/city/${selectedState}/all-cities`
+        )
+        .then((response) => {
+          setCities(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [selectedState]);
 
   function register() {
     alert("Cadastrado com sucesso!");
@@ -32,11 +55,18 @@ export function RegisterWeather() {
     <div className="register">
       <div className="title-register">Cadastro Metereológico</div>
 
-      <div className="fields">
-        <div>
+      <div className="fields-register">
+        <div className="select-state">
           <label className="text-state">Estado </label>
           <div className="list-states">
-            <select className="select-register">
+            <select
+              className="select-register"
+              defaultValue={selectedState}
+              onChange={(e) => setSelectedState(e.target.value)}
+            >
+              <option value="" disabled selected>
+                Selecione um estado
+              </option>
               {states.map((item) => (
                 <option key={item.state} value={item.state}>
                   {item.state}
@@ -44,19 +74,35 @@ export function RegisterWeather() {
               ))}
             </select>
           </div>
+          <div>
+            {selectedState && (
+              <div className="select-city">
+                <label className="text-city">Cidade </label>
+                <div className="list-cities">
+                  <select
+                    className="select-register"
+                    defaultValue={selectedCity}
+                    onChange={(e) => setSelectedCity(e.target.value)}
+                  >
+                    <option value="" disabled selected>
+                      Selecione uma cidade
+                    </option>
+                    {cities.map((item) => (
+                      <option key={item.name} value={item.name}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div>
           <label className="text-date">Data </label>
           <div className="date">
-            <input
-              className="input-date"
-              type="date"
-              //   class="form-control"
-              //   formControlName="date"
-              //   data-cy="date"
-              //   required
-            />
+            <input className="input-date" type="date" />
           </div>
         </div>
       </div>
@@ -72,56 +118,49 @@ export function RegisterWeather() {
                 <option>Sol com nuves</option>
                 <option>Sol</option>
                 <option>Nublado</option>
+                <option>Neve</option>
               </select>
             </div>
             <div className="fields-weather">
               <select className="select-weather">
                 <option>Chuva</option>
                 <option>Tempestade</option>
-                <option>Sol com nuves</option>
-                <option>Sol</option>
+                <option>Limpo</option>
                 <option>Nublado</option>
+                <option>Neve</option>
               </select>
             </div>
           </div>
 
           <div>
             <label className="text-register">Turno </label>
-            <div className="fields-weather">
-              <select className="select-shift">
-                <option>Dia</option>
-                <option>Noite</option>
-              </select>
-            </div>
-            <div className="fields-weather">
-              <select className="select-shift">
-                <option>Dia</option>
-                <option>Noite</option>
-              </select>
+            <div className="field-shift">
+              <input className="input-shift" value="Dia"></input>
+              <input className="input-shift" value="Noite"></input>
             </div>
           </div>
         </div>
 
         <div className="max">
           <div className="fields-temp">
-            <label>Temperatura Máxima </label>
+            <label className="text-fields">Temperatura Máxima </label>
             <div className="max-temperature">
-              <input className="input-max"></input>
+              <input className="input-temp"></input>
             </div>
           </div>
 
           <div className="precipitation-humidity">
             <div className="label-field">
-              <label>Precipitação </label>
+              <label className="text-fields">Precipitação </label>
 
-              <div className="precipitation">
-                <input className="input-precipitation"></input>
+              <div className="fields-input">
+                <input className="input-temp"></input>
               </div>
             </div>
             <div className="label-field">
-              <label>Humidade </label>
-              <div className="humidity">
-                <input className="input-humidity"></input>
+              <label className="text-fields">Humidade </label>
+              <div className="fields-input">
+                <input className="input-temp"></input>
               </div>
             </div>
           </div>
@@ -129,15 +168,15 @@ export function RegisterWeather() {
 
         <div className="min">
           <div className="fields-temp">
-            <label>Temperatura Mínma </label>
+            <label className="text-fields">Temperatura Mínima </label>
             <div className="min-temperature">
-              <input className="input-min"></input>
+              <input className="input-temp"></input>
             </div>
           </div>
 
           <div>
             <div>
-              <label>Velocidade do vento </label>
+              <label className="text-fields">Velocidade do vento </label>
               <div className="wind-speed">
                 <input className="input-speed"></input>
               </div>

@@ -4,6 +4,25 @@
     margin-top: 2rem;
 }
 
+.title-register {
+    margin-bottom: 2rem;
+    margin-left: 1rem;
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.fields-register {
+    display: flex;
+}
+
+.text-state {
+    padding: 1.1rem;
+    font-weight: 600;
+    margin-right: 20rem;
+}
+
 .select-register {
     width: 4.38rem;
     height: 2.5rem;
@@ -17,60 +36,19 @@
     background-color: #523D7F;
 }
 
-.fields-weather {
-    margin-bottom: 1.5rem;
-    margin-top: 0.5rem;
+.select-city {
+    display: block;
+    margin-top: 2rem;
 }
 
-.fields-temp {
-    margin-bottom: 2rem;
-}
-
-.title-register {
-    margin-bottom: 1rem;
+.text-city {
     margin-left: 1rem;
-}
-
-.text-register {
-    padding: 1rem;
-    font-family: 'Poppins';
-    font-style: normal;
     font-weight: 600;
-    line-height: 0.75rem;
-}
-
-.text-state {
-    padding: 1.1rem;
 }
 
 .text-date {
     padding: 1.7rem;
-}
-
-.fields {
-    display: flex;
-}
-
-.select-weather {
-    width: 4.38rem;
-    height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 9rem;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-    color: white;
-    background-color: #523D7F;
-}
-
-.select-shift {
-    width: 4.38rem;
-    height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 4rem;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-    color: white;
-    background-color: #523D7F;
+    font-weight: 600;
 }
 
 .input-date {
@@ -106,62 +84,93 @@
     margin-top: 3rem;
 }
 
-.text-state {
-    margin-right: 20rem;
+.text-register {
+    padding: 1rem;
+    font-family: 'Poppins';
+    font-weight: 600;
+    line-height: 0.75rem;
+}
+
+
+.fields-weather {
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.select-weather {
+    width: 4.38rem;
+    height: 2.5rem;
+    margin-right: 1.88rem;
+    border-radius: 0.5rem;
+    width: 9rem;
+    background: linear-gradient(180deg, #957DCD , #523D7F );
+    color: white;
+    background-color: #523D7F;
+}
+
+.field-shift {
+    display: grid;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+.input-shift {
+    margin-bottom: 1.5rem;
+    height: 2.2rem;
+    border-radius: 0.5rem;
+    width: 3rem;
+    color: white;
+    background: linear-gradient(180deg, #957DCD , #523D7F );
 }
 
 .max {
-    margin-right: 5rem;
+    margin-right: 2rem;
     margin-top: 3rem;
-    padding-left: 1rem;
+}
+
+.fields-temp {
+    margin-bottom: 0.8rem;
+}
+
+.text-fields {
+    font-weight: 600;
+    font-family: 'Poppins';
+    font-weight: 600;
+    line-height: 0.75rem;
 }
 
 .max-temperature {
     margin-top: 0.5rem;
 }
 
+/* .fields-input {
+    margin-top: 0.5rem;
+} */
+
 .min {
     margin-top: 3rem;
 }  
 
-.min-temprature {
+.min-temperature {
     margin-top: 0.5rem;
 }
 
-.input-max {
+.fields-input {
+    margin-top: 0.5rem;
+}
+
+.input-temp {
+    margin-bottom: 1.5rem;
     height: 2.5rem;
-    margin-right: 1.88rem;
     border-radius: 0.5rem;
     width: 3rem;
     color: white;
     background: linear-gradient(180deg, #957DCD , #523D7F );
 }
 
-.input-precipitation{
-    height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 3rem;
-    color: white;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-}
-
-.input-humidity {
-    height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 3rem;
-    color: white;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-}
-
-.input-min {
-    height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 3rem;
-    color: white;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
+.wind-speed {
+    margin-top: 0.5rem;
 }
 
 .input-speed {
@@ -173,13 +182,13 @@
     background: linear-gradient(180deg, #957DCD , #523D7F );
 }
 
+.precipitation-humidity {
+    display: flex;
+}
+
 .label-field {
     display: flow-root;
     margin-right: 4rem;
-}
-
-.precipitation-humidity {
-    display: flex;
 }
 
 .btn {

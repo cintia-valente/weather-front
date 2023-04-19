@@ -1,17 +1,87 @@
-.select-list {
-    width: 70px;
-    height: 25px;
-    margin-right: 30px;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-    border-radius: 15px;
-    margin-left: 27px;
-    margin-right: 27px;
+.list {
+    margin-top: 2rem;
 }
 
-.fields {
-    display: flex;
+.title-list {
+    margin-bottom: 2rem;
+    margin-left: 6.6rem;
+    font-weight: 600;
+    font-size: 2rem;
+    font-family: 'Poppins';
+    font-style: normal;
 }
 
-.weather-shift {
-    display: flex;
+.title-seacrh {
+    margin-left: 4rem;
+}
+
+.label-input {
+    margin-left: 5.4rem;
+}
+
+.text-city {
+    padding: 1.1rem;
+    font-weight: 600;
+    margin-right: 20rem;
+    margin-left: 0.1rem;
+}
+
+.card-city {
+    background: linear-gradient(360deg, #957DCD 29%, #523D7F 100%);
+    border-radius: 0.93rem;
+    margin-left: 2.5rem;
+    margin-top: 1rem;
+    margin-bottom: auto;
+    width: 70rem;
+}
+
+.city-weather {
+    align-items: center;
+    margin-left: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 19rem;
+}
+
+.table-column {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20rem;
+    font-weight: 600; 
+    width: 76rem;
+}
+
+.column-list {
+    margin-left: 0.5rem;
+}
+
+.table-column > div:first-child  {
+    margin-left: 3.5rem;
+}
+
+.table-column > div:nth-child(2) {
+    margin-left: 1.2rem;
+}
+
+.table-column > div:nth-child(3) {
+    padding-right: 10rem;
+}
+
+.city-weather td:nth-child(3) {
+    width: 8rem;
+}
+
+.table-list {
+    display: grid;
+    place-items: center;
+    margin-top: 4rem;
+    margin-bottom: 12rem;
+}
+
+.editIcon {
+    margin-right: 1rem;
+}
+
+.deleteIcon {
+    margin-right: 0rem;
 }
