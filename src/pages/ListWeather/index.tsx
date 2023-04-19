@@ -70,45 +70,6 @@ export function ListWeather() {
               </td>
             </tr>
           </div>
-
-          <div className="card-city">
-            <tr className="city-weather">
-              <td>Rio de Janeiro</td>
-              <td>15/01/2023</td>
-              <td>
-                <div>
-                  <img className="editIcon" src={editIcon} />
-                  <img className="deleteIcon" src={deleteIcon} />
-                </div>
-              </td>
-            </tr>
-          </div>
-
-          <div className="card-city">
-            <tr className="city-weather">
-              <td>São Paulo</td>
-              <td>10/01/2023</td>
-              <td>
-                <div>
-                  <img className="editIcon" src={editIcon} />
-                  <img className="deleteIcon" src={deleteIcon} />
-                </div>
-              </td>
-            </tr>
-          </div>
-
-          <div className="card-city">
-            <tr className="city-weather">
-              <td>Floripa</td>
-              <td>02/01/2023</td>
-              <td>
-                <div>
-                  <img className="editIcon" src={editIcon} />
-                  <img className="deleteIcon" src={deleteIcon} />
-                </div>
-              </td>
-            </tr>
-          </div>
         </table>
       </div>
     </div>

@@ -25,10 +25,6 @@
     margin-right: 20rem;
     margin-left: 0.1rem;
 }
-/* 
-.fields {
-    display: flex;
-} */
 
 .card-city {
     background: linear-gradient(360deg, #957DCD 29%, #523D7F 100%);
@@ -83,7 +79,7 @@
     display: grid;
     place-items: center;
     margin-top: 4rem;
-    margin-bottom: 26rem;
+    margin-bottom: 18rem;
 }
 
 .editIcon {
