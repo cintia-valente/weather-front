@@ -28,10 +28,12 @@
     height: 2.5rem;
     margin-right: 1.88rem;
     margin-left: 1rem;
+    padding-left: 1rem;
     border-radius: 0.5rem;
     width: 18rem;
     margin-top: 0.5rem;
     color: white;
+    font-family: 'Poppins';
     background: linear-gradient(180deg, #957DCD, #523D7F );
     background-color: #523D7F;
 }
@@ -51,22 +53,25 @@
 }
 
 .text-date {
-    padding: 1.7rem;
+    padding: 6.7rem;
     font-weight: 600;
 }
 
 .input-date {
     width: 4.38rem;
     height: 1.57rem;
-    margin-right: 1.88rem;
     border-radius: 0.5rem;
-    width: 18rem;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-    margin-left: 1.68rem;
+    width: 11rem;
+    padding-left: 1rem;
+    font-family: 'Poppins';
+    margin-left: 6.68rem;
     margin-right: 1.68rem;
+    padding-right: 0.5rem;
+    padding-left: 1rem;
     height: 2.5rem;
     color: white;
     margin-top: 0.5rem;
+    background: linear-gradient(180deg, #957DCD , #523D7F );
 }
 
 .input-date:hover {
@@ -110,6 +115,8 @@
     height: 2.5rem;
     margin-right: 1.88rem;
     border-radius: 0.5rem;
+    padding-left: 1rem;
+    font-family: 'Poppins';
     width: 9rem;
     background: linear-gradient(180deg, #957DCD , #523D7F );
     color: white;
@@ -131,7 +138,9 @@
     margin-bottom: 1.5rem;
     height: 2.2rem;
     border-radius: 0.5rem;
-    width: 3rem;
+    font-family: 'Poppins';
+    padding-left: 0.5rem;
+    width: 2.5rem;
     color: white;
     background: linear-gradient(180deg, #957DCD , #523D7F );
 }
@@ -172,8 +181,10 @@
     margin-bottom: 1.5rem;
     height: 2.5rem;
     border-radius: 0.5rem;
-    width: 3rem;
+    width: 2rem;
     color: white;
+    font-family: 'Poppins';
+    padding-left: 1rem;
     background: linear-gradient(180deg, #957DCD , #523D7F );
 }
 
@@ -208,15 +219,4 @@
     justify-content: end;
     margin-right: 5rem;
     margin-bottom: 5rem;
-}
-
-.btn-register {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.5rem;
-    line-height: 0.75rem;
-    height: 2.5rem;
-    width: 15rem;
-    color: white;
 }

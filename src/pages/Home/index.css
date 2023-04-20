@@ -58,16 +58,15 @@ select {
     background-size: 20px 20px;
     background-position: 5% 50%; 
     background-repeat: no-repeat;
-    padding-left: 1.57rem; 
+    padding-left: 3.7rem; 
     background: linear-gradient(180deg, #957DCD , #523D7F );
     border-radius: 0.9rem;
-    opacity: 0.5;
     width: 17rem;
     height: 2.2rem;
-    margin-left: 1rem;
+    margin-left: 0.9rem;
     margin-right: 1rem;
     color: white;
-    width: 23rem;
+    width: 21rem;
     margin-top: 0.1rem;
 }
  
@@ -79,7 +78,7 @@ select {
 
 .icon-search {
     position: absolute;
-    padding: 3.2rem 1rem;
+    padding: 3.2rem 0.5rem;
 }
 
 .icon-location {

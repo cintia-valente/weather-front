@@ -16,7 +16,7 @@ export function ListWeather() {
         <div className="label-input">
           <label className="text-city">Cidade</label>
           <div className="img-search">
-            <input className="search"></input>
+            <input className="search-input"></input>
             <img className="search-icon" src={searchList} height="40px" />
           </div>
         </div>
