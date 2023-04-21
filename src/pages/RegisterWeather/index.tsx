@@ -26,7 +26,6 @@ export function RegisterWeather() {
 
   useEffect(() => {
     if (selectedState) {
-      debugger;
       OperationsService.getCityByState(selectedState).then((result) => {
         if (result instanceof ApiException) {
           alert(result.message);
