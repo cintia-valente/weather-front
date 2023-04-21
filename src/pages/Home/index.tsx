@@ -98,7 +98,7 @@ export function Home() {
       </div>
 
       <div className="table-home">
-        <table className="column-home">
+        <table>
           <div className="home-row">
             <tr className="city-home">
               <td>31/03/2023</td>

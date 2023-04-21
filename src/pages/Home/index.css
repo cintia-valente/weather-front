@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 .home {
     margin-left: 5.8rem;
     font-size: 1rem;
@@ -12,10 +7,6 @@
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
-}
-
-.input-search {
-    margin-right: 7rem;
 }
 
 .title-home {
@@ -28,55 +19,8 @@
     margin-top: 1rem;
 }
 
-.today-icon {
-    margin-right: 1rem;
-}
-
-.select {
-    width: 4,38rem;
-    height: 1.57rem;
-    margin-right: 1.88rem;
-}
-
-.fields-home {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 0rem;
-    align-items: center;
-    padding: 1rem 2rem;
-}
-
-select {
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-    border-radius: 0.5rem;
-    margin-left: 1rem;
+.input-search {
     margin-right: 7rem;
-}
-
-.weather-shift {
-    display: flex;
-}
-
-.search {
-    background-image: url('../../assets/search.svg');
-    background-size: 20px 20px;
-    background-position: 5% 50%; 
-    background-repeat: no-repeat;
-    padding-left: 3.7rem; 
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-    border-radius: 0.9rem;
-    width: 17rem;
-    height: 2.2rem;
-    margin-left: 0.9rem;
-    margin-right: 1rem;
-    color: white;
-    width: 21rem;
-    margin-top: 0.1rem;
-}
- 
-
-.search:hover {
-    cursor: pointer;
 }
 
 .label-search {
@@ -92,11 +36,41 @@ select {
 
 .icon-search {
     position: absolute;
-    padding: 0.8rem 2rem;
+    padding: 0.65rem 2rem;
+    height: 1.2rem;
 }
 
+.search {
+    background-image: url('../../assets/search.svg');
+    background-size: 20px 20px;
+    background-position: 5% 50%; 
+    background-repeat: no-repeat;
+    padding-left: 3.7rem; 
+    background: linear-gradient(180deg, #957DCD , #523D7F );
+    border-radius: 0.9rem;
+    height: 2.2rem;
+    margin-left: 0.9rem;
+    margin-right: 1rem;
+    color: white;
+    width: 21rem;
+    margin-top: 0.1rem;
+}
+
+.search:hover {
+    cursor: pointer;
+}
+ 
 .icon-location {
     margin-top: 0.1rem;
+}
+
+.card-home {
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 50%);
+    border-radius: 0.6rem;
+    margin-left: 1.1rem;
+    margin-right: 7.5rem;
+    margin-top: 1rem;
+    height: 11rem;
 }
 
 .weather-today {
@@ -108,6 +82,10 @@ select {
     display: flex;
     align-items: center;
     margin-left: 5rem;
+}
+
+.today-icon {
+    margin-right: 1rem;
 }
 
 .max-min {
@@ -135,13 +113,21 @@ select {
     margin-top: 1.5rem;
 }
 
-.card-home {
-    background: linear-gradient(180deg, #957DCD 0%, #523D7F 50%);
-    border-radius: 0.6rem;
-    margin-left: 1.1rem;
-    margin-right: 7.5rem;
-    margin-top: 1rem;
-    height: 11rem;
+.fields-home {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0rem;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.fields-card {
+    display: grid;
+    place-items: center; 
+}
+
+.img-card {
+    margin-left: 2rem;
 }
 
 .table-home {
@@ -149,15 +135,6 @@ select {
     justify-content: center;
     margin-top: 2rem;
     margin-bottom: 6rem;
-}
-
-.img-card {
-    margin-left: 2rem;
-}
-
-.fields-card {
-    display: grid;
-    place-items: center; 
 }
 
 .home-row {
@@ -168,7 +145,6 @@ select {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 6rem;
-  
 }
 
 .img-temp {
@@ -187,4 +163,3 @@ select {
 .last-column > div:first-child {
     margin-right: 1rem;
 }
-

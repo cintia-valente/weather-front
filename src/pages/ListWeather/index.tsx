@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import "./index.css";
 import editIcon from "../../assets/edit.svg";
 import deleteIcon from "../../assets/delete.svg";
@@ -11,13 +9,13 @@ interface State {
 export function ListWeather() {
   return (
     <div className="list">
-      <div className="title-search">
+      <div>
         <div className="title-list">Lista de cidades</div>
         <div className="label-input">
           <label className="text-city">Cidade</label>
           <div className="img-search">
             <input className="search-input"></input>
-            <img className="search-icon" src={searchList} height="40px" />
+            <img src={searchList} height="40px" />
           </div>
         </div>
       </div>

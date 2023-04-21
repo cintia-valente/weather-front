@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-
 .list {
     margin-top: 2rem;
 }
@@ -15,6 +9,20 @@
     font-size: 2rem;
     font-family: 'Poppins';
     font-style: normal;
+}
+
+.label-input {
+    margin-left: 5.4rem;
+}
+
+.text-city {
+    padding: 1.1rem;
+    font-weight: 600;
+    margin-left: 0.1rem;
+}
+
+.img-search:hover {
+    cursor: pointer;
 }
 
 .search-input {
@@ -33,18 +41,35 @@
     margin-top: 0.1rem;
 }
 
-.img-search:hover {
-    cursor: pointer;
+.table-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    margin-bottom: 12rem;
 }
 
-.label-input {
-    margin-left: 5.4rem;
+.column-list {
+    margin-left: 0.5rem;
 }
 
-.text-city {
-    padding: 1.1rem;
-    font-weight: 600;
-    margin-left: 0.1rem;
+.table-column {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 20rem;
+    font-weight: 600; 
+    width: 76rem;
+}
+
+.table-column > div:first-child  {
+    margin-left: 3.5rem;
+}
+
+.table-column > div:nth-child(2) {
+    margin-left: 1.2rem;
+}
+
+.table-column > div:nth-child(3) {
+    padding-right: 10rem;
 }
 
 .card-city {
@@ -64,39 +89,8 @@
     grid-column-gap: 19rem;
 }
 
-.table-column {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 20rem;
-    font-weight: 600; 
-    width: 76rem;
-}
-
-.column-list {
-    margin-left: 0.5rem;
-}
-
-.table-column > div:first-child  {
-    margin-left: 3.5rem;
-}
-
-.table-column > div:nth-child(2) {
-    margin-left: 1.2rem;
-}
-
-.table-column > div:nth-child(3) {
-    padding-right: 10rem;
-}
-
 .city-weather td:nth-child(3) {
     width: 8rem;
-}
-
-.table-list {
-    display: flex;
-    justify-content: center;
-    margin-top: 4rem;
-    margin-bottom: 12rem;
 }
 
 .editIcon {

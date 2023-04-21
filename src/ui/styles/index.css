@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    border: 0;
 }
 
 body {
@@ -38,6 +39,15 @@ ul {
     list-style: none;
  }
  
+ li { 
+    margin-top: 1rem;
+    margin-left: 4.7rem;
+    margin-bottom: 1rem;
+    line-height: 0.75rem;
+    font-weight: 600;
+    font-family: 'Poppins';
+}
+
  a {
      color:white;
      text-decoration: none;
@@ -47,15 +57,6 @@ ul {
  
  a:hover {
      text-decoration: underline;
- }
- 
- li { 
-     margin-top: 1rem;
-     margin-left: 4.7rem;
-     margin-bottom: 1rem;
-     line-height: 0.75rem;
-     font-weight: 600;
-     font-family: 'Poppins';
  }
 
  p {

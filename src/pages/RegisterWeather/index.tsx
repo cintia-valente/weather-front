@@ -49,9 +49,9 @@ export function RegisterWeather() {
       <div className="title-register">Cadastro Metereológico</div>
 
       <div className="fields-register">
-        <div className="select-state">
+        <div>
           <label className="text-state">Estado </label>
-          <div className="list-states">
+          <div>
             <select
               className="select-register"
               defaultValue={selectedState}
@@ -72,7 +72,7 @@ export function RegisterWeather() {
             {selectedState && (
               <div className="select-city">
                 <label className="text-city">Cidade </label>
-                <div className="list-cities">
+                <div>
                   <select
                     className="select-register"
                     defaultValue={selectedCity}
@@ -95,7 +95,7 @@ export function RegisterWeather() {
 
         <div>
           <label className="text-date">Data </label>
-          <div className="date">
+          <div>
             <input className="input-date" type="date" />
           </div>
         </div>

@@ -1,8 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 .register{
     margin-left: 5.6rem;;
     font-size: 1.25rem;
@@ -109,7 +104,6 @@
     line-height: 0.75rem;
 }
 
-
 .fields-weather {
     margin-bottom: 1.5rem;
     margin-top: 0.5rem;
@@ -159,22 +153,7 @@
     margin-bottom: 0.8rem;
 }
 
-.text-fields {
-    font-weight: 600;
-    font-family: 'Poppins';
-    font-weight: 600;
-    line-height: 0.75rem;
-}
-
 .temperature {
-    margin-top: 0.5rem;
-}
-
-.min {
-    margin-top: 3rem;
-}  
-
-.fields-input {
     margin-top: 0.5rem;
 }
 
@@ -193,19 +172,6 @@
     cursor: pointer;
 }
 
-.wind-speed {
-    margin-top: 0.5rem;
-}
-
-.input-speed {
-    height: 2.5rem;
-    margin-right: 1.88rem;
-    border-radius: 0.5rem;
-    width: 3rem;
-    color: white;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
-}
-
 .precipitation-humidity {
     display: flex;
 }
@@ -213,6 +179,25 @@
 .label-field {
     display: flow-root;
     margin-right: 4rem;
+}
+
+.text-fields {
+    font-weight: 600;
+    font-family: 'Poppins';
+    font-weight: 600;
+    line-height: 0.75rem;
+}
+
+.fields-input {
+    margin-top: 0.5rem;
+}
+
+.min {
+    margin-top: 3rem;
+}  
+
+.wind-speed {
+    margin-top: 0.5rem;
 }
 
 .btn {
