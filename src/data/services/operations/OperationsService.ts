@@ -19,7 +19,7 @@ const getState = async () => {
   }
 };
 
-const getCityByState = async (selectedState: any) => {
+const getCityByState = async (selectedState: State["state"]) => {
   try {
     const { data } = await Api().get(`/city/${selectedState}/all-cities`);
     return data;
