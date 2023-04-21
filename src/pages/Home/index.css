@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .home {
     margin-left: 5.8rem;
     font-size: 1rem;
@@ -5,12 +10,15 @@
 
 .text-search {
     display: flex;
-    margin-bottom: 0rem;
-    margin-left: 0rem;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.input-search {
+    margin-right: 7rem;
 }
 
 .title-home {
-    margin-right: 39rem;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
@@ -22,10 +30,6 @@
 
 .today-icon {
     margin-right: 1rem;
-}
-
-.label-search {
-    margin-left: 1.5rem;
 }
 
 .select {
@@ -75,10 +79,20 @@ select {
     cursor: pointer;
 }
 
+.label-search {
+    position: relative;
+    margin-left: 1.5rem;
+}
+
+.img-search {
+    display: flex;
+    margin-top: 0.8rem;
+    position: relative;
+}
 
 .icon-search {
     position: absolute;
-    padding: 3.2rem 0.5rem;
+    padding: 0.8rem 2rem;
 }
 
 .icon-location {
@@ -87,19 +101,10 @@ select {
 
 .weather-today {
     display: flex;
-}
-
-.fields-register {
-    display: flex;
-}
-
-.img-search {
-    display: flex;
-    margin-top: 0.8rem;
+    justify-content: space-between;
 }
 
 .img-today {
-    margin-right: 19rem;
     display: flex;
     align-items: center;
     margin-left: 5rem;
@@ -131,17 +136,17 @@ select {
 }
 
 .card-home {
-    background: linear-gradient(260deg, #957DCD 29%, #523D7F 100%);
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 50%);
     border-radius: 0.6rem;
-    margin-left: 0.5rem;
-    margin-right: 7rem;
+    margin-left: 1.1rem;
+    margin-right: 7.5rem;
     margin-top: 1rem;
     height: 11rem;
 }
 
 .table-home {
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
     margin-top: 2rem;
     margin-bottom: 6rem;
 }
@@ -153,10 +158,6 @@ select {
 .fields-card {
     display: grid;
     place-items: center; 
-}
-
-.column-home {
-    margin-left: 0.5rem;
 }
 
 .home-row {

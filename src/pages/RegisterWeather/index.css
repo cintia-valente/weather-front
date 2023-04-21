@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .register{
     margin-left: 5.6rem;;
     font-size: 1.25rem;
@@ -70,8 +75,8 @@
     padding-left: 1rem;
     height: 2.5rem;
     color: white;
-    margin-top: 0.5rem;
-    background: linear-gradient(180deg, #957DCD , #523D7F );
+    margin-top: 0.5rem; 
+    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
 }
 
 .input-date:hover {
@@ -79,7 +84,7 @@
 }
 
 .card-weather {
-    background: linear-gradient(360deg, #957DCD 29%, #523D7F 100%);
+    background: linear-gradient(360deg, #957DCD 10%, #523D7F 70%);
     border-radius: 0.93rem;
     margin-left: 1rem;
     margin-right: 7rem;
@@ -161,17 +166,13 @@
     line-height: 0.75rem;
 }
 
-.max-temperature {
+.temperature {
     margin-top: 0.5rem;
 }
 
 .min {
     margin-top: 3rem;
 }  
-
-.min-temperature {
-    margin-top: 0.5rem;
-}
 
 .fields-input {
     margin-top: 0.5rem;

@@ -45,14 +45,13 @@ export function Home() {
 
         <div className="input-search">
           <div className="label-search">
-            <img src={search} className="icon-search" />
             <label className="text-search">Pesquise a cidade</label>
           </div>
           <div className="img-search">
+            <img src={search} className="icon-search" />
             <input className="search"></input>
-            <div>
-              <img src={location} className="icon-location" />
-            </div>
+
+            <img src={location} className="icon-location" />
           </div>
         </div>
       </div>

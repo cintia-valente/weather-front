@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button } from "../../ui/components/Button";
-import axios from "axios";
 import "./index.css";
-interface State {
-  state: string;
-}
-
-interface City {
-  cityId: number;
-  name: string;
-}
+import {
+  City,
+  OperationsService,
+  State,
+} from "../../data/services/operations/OperationsService";
+import { ApiException } from "../../data/services/ErrorException";
 
 export function RegisterWeather() {
   const [states, setStates] = useState<State[]>([]);
@@ -18,28 +15,24 @@ export function RegisterWeather() {
   const [selectedCity, setSelectedCity] = useState("");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:4767/api/v1/weather/states/all")
-      .then((response) => {
-        setStates(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    OperationsService.getState().then((result) => {
+      if (result instanceof ApiException) {
+        alert(result.message);
+      } else {
+        setStates(result);
+      }
+    });
   }, []);
 
   useEffect(() => {
     if (selectedState) {
-      axios
-        .get(
-          `http://localhost:4767/api/v1/weather/city/${selectedState}/all-cities`
-        )
-        .then((response) => {
-          setCities(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      OperationsService.getCityByState(selectedState).then((result) => {
+        if (result instanceof ApiException) {
+          alert(result.message);
+        } else {
+          setCities(result);
+        }
+      });
     }
   }, [selectedState]);
 
@@ -63,6 +56,7 @@ export function RegisterWeather() {
               className="select-register"
               defaultValue={selectedState}
               onChange={(e) => setSelectedState(e.target.value)}
+              required
             >
               <option value="" disabled selected>
                 Selecione um estado
@@ -144,7 +138,7 @@ export function RegisterWeather() {
         <div className="max">
           <div className="fields-temp">
             <label className="text-fields">Temperatura Máxima </label>
-            <div className="max-temperature">
+            <div className="temperature">
               <input className="input-temp"></input>
             </div>
           </div>
@@ -169,7 +163,7 @@ export function RegisterWeather() {
         <div className="min">
           <div className="fields-temp">
             <label className="text-fields">Temperatura Mínima </label>
-            <div className="min-temperature">
+            <div className="temperature">
               <input className="input-temp"></input>
             </div>
           </div>
