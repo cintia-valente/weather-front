@@ -11,8 +11,24 @@
     font-style: normal;
 }
 
-.title-seacrh {
-    margin-left: 4rem;
+.search-input {
+    background-size: 20px 20px;
+    background-position: 5% 50%; 
+    background-repeat: no-repeat;
+    padding-left: 1.7rem; 
+    background: linear-gradient(180deg, #957DCD , #523D7F );
+    border-radius: 0.9rem;
+    width: 17rem;
+    height: 2.2rem;
+    margin-left: 0.9rem;
+    margin-right: 1rem;
+    color: white;
+    width: 21rem;
+    margin-top: 0.1rem;
+}
+
+.img-search:hover {
+    cursor: pointer;
 }
 
 .label-input {

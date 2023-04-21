@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { Button } from "../../ui/components/Button";
 import axios from "axios";
 import "./index.css";
-import location from "../../assets/location.svg";
 import editIcon from "../../assets/edit.svg";
 import deleteIcon from "../../assets/delete.svg";
 import searchList from "../../assets/search-city.svg";
@@ -18,7 +16,7 @@ export function ListWeather() {
         <div className="label-input">
           <label className="text-city">Cidade</label>
           <div className="img-search">
-            <input className="search"></input>
+            <input className="search-input"></input>
             <img className="search-icon" src={searchList} height="40px" />
           </div>
         </div>
