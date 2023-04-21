@@ -26,6 +26,7 @@ export function RegisterWeather() {
 
   useEffect(() => {
     if (selectedState) {
+      debugger;
       OperationsService.getCityByState(selectedState).then((result) => {
         if (result instanceof ApiException) {
           alert(result.message);
@@ -82,7 +83,7 @@ export function RegisterWeather() {
                       Selecione uma cidade
                     </option>
                     {cities.map((item) => (
-                      <option key={item.name} value={item.name}>
+                      <option key={item.cityId} value={item.name}>
                         {item.name}
                       </option>
                     ))}
