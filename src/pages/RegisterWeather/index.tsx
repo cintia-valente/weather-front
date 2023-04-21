@@ -77,6 +77,7 @@ export function RegisterWeather() {
                     className="select-register"
                     defaultValue={selectedCity}
                     onChange={(e) => setSelectedCity(e.target.value)}
+                    required
                   >
                     <option value="" disabled selected>
                       Selecione uma cidade
