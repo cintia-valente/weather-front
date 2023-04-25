@@ -9,7 +9,7 @@ body {
     color:white;
     font-family: 'Poppins';
     background-size: 100% 500%;
-  }
+}
 
 header {
     margin-top: 1rem;
@@ -67,3 +67,10 @@ ul {
     font-size: 1.25rem;
     line-height: 0.75rem;
  }
+
+ 
+@media (max-width: 450px) {
+    ul {
+        display: grid;  
+    } 
+}

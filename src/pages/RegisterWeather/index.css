@@ -206,3 +206,99 @@
     margin-right: 5rem;
     margin-bottom: 5rem;
 }
+
+@media (max-width: 450px) {
+
+    .register {
+        margin-left: 0rem;
+        margin-top: 3rem;
+    }
+
+    .title-register {
+        font-size: 1.5rem;
+        margin-left: 2rem;
+    }
+
+    .fields-register {
+        display: grid;
+        grid-gap: 2rem;
+        margin-left: 1rem;
+    }
+
+    .card-weather {
+        width: 22.5rem;
+        height: 45rem;
+        display: flow-root;
+        margin-top: 3rem;
+    }
+
+    .weather-shift {
+        display: flex;
+        margin-left: 1.5rem;
+        margin-top: 3rem;
+    }
+
+    .max {
+        margin-left: 2rem;
+        margin-top: 2rem;
+    }
+
+    .min {
+        margin-left: 5rem;
+    }
+
+    .fields-temp {
+        margin-bottom: 0rem;
+    }
+
+    .btn {
+        display: grid;
+        justify-content: center;
+        margin-bottom: 2rem;
+        padding: 0rem 1rem 0rem 6rem;
+    }
+
+    .btn-register {
+        margin-bottom: 3rem;
+    }
+}
+
+@media (min-width: 460px) and (max-width: 1200px) {
+ 
+    .card-weather {
+        display: flow-root;
+        height: 34rem;
+        width: 40rem;
+        margin-left: 0rem;
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+    }
+
+    .weather-shift {
+        margin-left: 9rem;
+        margin-top: 1rem;
+    }
+
+    .max {
+        display: grid;
+        padding-left: 7rem;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .min {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 1rem;
+    }
+
+    .fields-register {
+        display: grid;
+        grid-gap: 2rem;
+    }
+
+    .btn {
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+}
