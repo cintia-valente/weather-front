@@ -3,8 +3,14 @@ import { NightTimeEnum } from "../../../ui/enum/nightTimeEnum";
 import { Api } from "../ApiConfig";
 import { ApiException } from "../ErrorException";
 
+export interface City {
+  idCity: number;
+  name: string;
+}
+
 export interface WheaterData {
-  city: City;
+  idWheaterData: number;
+  city: City[];
   date: Date;
   dayTimeEnum: DayTimeEnum;
   nightTimeEnum: NightTimeEnum;
@@ -13,11 +19,6 @@ export interface WheaterData {
   precipitation: number;
   humidity: number;
   windSpeed: number;
-}
-
-export interface City {
-  idCity: number;
-  name: string;
 }
 
 const getCity = async () => {
@@ -29,12 +30,14 @@ const getCity = async () => {
   }
 };
 
-const postWheater = async (payload: WheaterData) => {
+const postWheater = async (
+  payload: Omit<WheaterData, "idWheaterData">
+): Promise<WheaterData | ApiException> => {
   try {
     const { data } = await Api().post("/register", payload);
-    console.log(data);
+    return data;
   } catch (error: any) {
-    console.error(error.message || "Erro ao fazer cadastrar.");
+    return new ApiException(error.message || "Erro ao cadastrar.");
   }
 };
 
