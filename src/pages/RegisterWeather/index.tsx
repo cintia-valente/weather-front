@@ -4,39 +4,64 @@ import "./index.css";
 import {
   City,
   OperationsService,
-  State,
+  WheaterData,
 } from "../../data/services/operations/OperationsService";
 import { ApiException } from "../../data/services/ErrorException";
+import { DayTimeEnum } from "../../ui/enum/dayTimeEnum";
+import { NightTimeEnum } from "../../ui/enum/nightTimeEnum";
 
 export function RegisterWeather() {
-  const [states, setStates] = useState<State[]>([]);
   const [cities, setCities] = useState<City[]>([]);
-  const [selectedState, setSelectedState] = useState("");
+  const [wheaterData, setWheaterData] = useState(false);
   const [selectedCity, setSelectedCity] = useState("");
+  // const payload = {
+  //   city: {
+  //     idCity: 202,
+  //     name: "Porto Alegre",
+  //   },
+  //   date: new Date(),
+  //   dayTimeEnum: DayTimeEnum.SOL,
+  //   nightTimeEnum: NightTimeEnum.CHUVA,
+  //   maxTemperature: 25,
+  //   minTemperature: 19,
+  //   precipitation: 9,
+  //   humidity: 30,
+  //   windSpeed: 5,
+  // };
 
   useEffect(() => {
-    OperationsService.getState().then((result) => {
+    //  debugger;
+    OperationsService.getCity().then((result) => {
       if (result instanceof ApiException) {
         alert(result.message);
       } else {
-        setStates(result);
+        setCities(result);
       }
     });
   }, []);
 
-  useEffect(() => {
-    if (selectedState) {
-      OperationsService.getCityByState(selectedState).then((result) => {
-        if (result instanceof ApiException) {
-          alert(result.message);
-        } else {
-          setCities(result);
-        }
-      });
-    }
-  }, [selectedState]);
+  // useEffect(() => {
+  //   if (payload.city.idCity && payload.city.name && payload.date) {
+  //     OperationsService.postWheater(payload);
+  //     alert("Cadastrado com sucesso!");
+  //   } else {
+  //     console.error("Payload inválido!");
+  //   }
+  // }, []);
 
-  function register() {
+  // useEffect(() => {
+  //   if (selectedState) {
+  //     OperationsService.getCityByState(selectedState).then((result) => {
+  //       if (result instanceof ApiException) {
+  //         alert(result.message);
+  //       } else {
+  //         setCities(result);
+  //       }
+  //     });
+  //   }
+  // }, [selectedState]);
+
+  function submit() {
     alert("Cadastrado com sucesso!");
   }
 
@@ -50,47 +75,23 @@ export function RegisterWeather() {
 
       <div className="fields-register">
         <div>
-          <label className="text-state">Estado </label>
+          <label className="text-city">Cidade </label>
           <div>
             <select
               className="select-register"
-              defaultValue={selectedState}
-              onChange={(e) => setSelectedState(e.target.value)}
+              value={selectedCity}
+              onChange={(e) => setSelectedCity(e.target.value)}
               required
             >
               <option value="" disabled selected>
-                Selecione um estado
+                Selecione uma cidade
               </option>
-              {states.map((item) => (
-                <option key={item.state} value={item.state}>
-                  {item.state}
+              {cities.map((item) => (
+                <option key={item.idCity} value={item.name}>
+                  {item.name}
                 </option>
               ))}
             </select>
-          </div>
-          <div>
-            {selectedState && (
-              <div className="select-city">
-                <label className="text-city">Cidade </label>
-                <div>
-                  <select
-                    className="select-register"
-                    defaultValue={selectedCity}
-                    onChange={(e) => setSelectedCity(e.target.value)}
-                    required
-                  >
-                    <option value="" disabled selected>
-                      Selecione uma cidade
-                    </option>
-                    {cities.map((item) => (
-                      <option key={item.cityId} value={item.name}>
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
@@ -182,7 +183,7 @@ export function RegisterWeather() {
 
       <div className="btn">
         <Button onClick={cancel} label="Cancelar" />
-        <Button onClick={register} label="Salvar" />
+        <Button onClick={submit} label="Salvar" />
       </div>
     </div>
   );

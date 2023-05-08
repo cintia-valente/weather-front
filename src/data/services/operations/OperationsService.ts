@@ -1,41 +1,59 @@
+import { DayTimeEnum } from "../../../ui/enum/dayTimeEnum";
+import { NightTimeEnum } from "../../../ui/enum/nightTimeEnum";
 import { Api } from "../ApiConfig";
 import { ApiException } from "../ErrorException";
 
-export interface State {
-  state: string;
+export interface WheaterData {
+  city: City;
+  date: Date;
+  dayTimeEnum: DayTimeEnum;
+  nightTimeEnum: NightTimeEnum;
+  maxTemperature: number;
+  minTemperature: number;
+  precipitation: number;
+  humidity: number;
+  windSpeed: number;
 }
 
 export interface City {
-  cityId: number;
+  idCity: number;
   name: string;
 }
 
-const getState = async () => {
+const getCity = async () => {
   try {
-    const { data } = await Api().get("/states/all");
+    const { data } = await Api().get("/cities/all");
     return data;
   } catch (error: any) {
     return new ApiException(error.message || "Erro ao consultar a API.");
   }
 };
 
-const getCityByState = async (selectedState: State["state"]) => {
+const postWheater = async (payload: WheaterData) => {
   try {
-    const { data } = await Api().get(`/city/${selectedState}/all-cities`);
-    return data;
+    const { data } = await Api().post("/register", payload);
+    console.log(data);
   } catch (error: any) {
-    return new ApiException(error.message || "Erro ao consultar a API.");
+    console.error(error.message || "Erro ao fazer cadastrar.");
   }
 };
 
-const post = () => {};
+// const getCityByState = async (selectedState: WheaterData["state"]) => {
+//   try {
+//     const { data } = await Api().get(`/city/${selectedState}/all-cities`);
+//     return data;
+//   } catch (error: any) {
+//     return new ApiException(error.message || "Erro ao consultar a API.");
+//   }
+// };
+
 const updateById = () => {};
 const deleteById = () => {};
 
 export const OperationsService = {
-  getState,
-  getCityByState,
-  post,
+  getCity,
+  //  getCityByState,
+  postWheater,
   updateById,
   deleteById,
 };
