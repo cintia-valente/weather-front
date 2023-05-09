@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Button } from "../../ui/components/Button";
 import "./index.css";
 import {
-  City,
   OperationsService,
   WheaterData,
 } from "../../data/services/operations/OperationsService";
@@ -12,6 +11,11 @@ import { NightTimeEnum } from "../../ui/enum/nightTimeEnum";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+
+export interface City {
+  idCity: number;
+  name: string;
+}
 
 const validation = yup.object().shape({
   maxTemp: yup.string().required(),
@@ -26,8 +30,6 @@ export function RegisterWeather() {
     resolver: yupResolver(validation),
   });
 
-  const addPost = (data: any) => console.log(data);
-
   const [cities, setCities] = useState<City[]>([]);
   const [selectedCity, setSelectedCity] = useState("");
 
@@ -41,33 +43,41 @@ export function RegisterWeather() {
     });
   }, []);
 
-  const [wheaterData, setWheaterData] = useState<WheaterData[]>([]);
+  const [data, setData] = useState({
+    idCity: 0,
+    date: "",
+    dayTimeEnum: null,
+    nightTimeEnum: null,
+    maxTemperature: 0,
+    minTemperature: 0,
+    precipitation: 0,
+    humidity: 0,
+    windSpeed: 0,
+  });
 
-  const submit = async () => {
-    OperationsService.postWheater(wheaterData).then((result) => {
+  const formData = {
+    date: "2023-05-10",
+  };
+
+  const onSubmit = async () => {
+    OperationsService.postWheater({
+      idCity: parseInt(selectedCity),
+      date: new Date(formData.date + "T00:00:00.000Z"),
+      dayTimeEnum: data.dayTimeEnum,
+      nightTimeEnum: data.nightTimeEnum,
+      maxTemperature: data.maxTemperature,
+      minTemperature: data.minTemperature,
+      precipitation: data.precipitation,
+      humidity: data.humidity,
+      windSpeed: data.windSpeed,
+    }).then((result) => {
       if (result instanceof ApiException) {
         alert(result.message);
       } else {
-        setWheaterData(wheaterData);
+        setData(data);
       }
     });
   };
-
-  // useEffect(() => {
-  //   if (selectedState) {
-  //     OperationsService.getCityByState(selectedState).then((result) => {
-  //       if (result instanceof ApiException) {
-  //         alert(result.message);
-  //       } else {
-  //         setCities(result);
-  //       }
-  //     });
-  //   }
-  // }, [selectedState]);
-
-  // function submit() {
-  //   alert("Cadastrado com sucesso!");
-  // }
 
   function cancel() {
     alert("Cancelado com sucesso!");
@@ -77,13 +87,14 @@ export function RegisterWeather() {
     <div className="register">
       <div className="title-register">Cadastro Metereológico</div>
 
-      <form onSubmit={handleSubmit(addPost)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="fields-register">
           <div>
             <label className="text-city">Cidade </label>
             <div>
               <select
                 className="select-register"
+                data-testid="city-select"
                 {...register("register")}
                 value={selectedCity}
                 onChange={(e) => setSelectedCity(e.target.value)}
@@ -93,7 +104,7 @@ export function RegisterWeather() {
                   Selecione uma cidade
                 </option>
                 {cities.map((item) => (
-                  <option key={item.idCity} value={item.name}>
+                  <option key={item.idCity} value={item.idCity}>
                     {item.name}
                   </option>
                 ))}
@@ -114,7 +125,11 @@ export function RegisterWeather() {
             <div>
               <label className="text-register">Tempo </label>
               <div className="fields-weather">
-                <select className="select-weather" {...register("temperature")}>
+                <select
+                  className="select-weather"
+                  data-testid="fields-select"
+                  {...register("temperature-day")}
+                >
                   <option>Chuva</option>
                   <option>Tempestade</option>
                   <option>Sol com nuves</option>
@@ -124,7 +139,10 @@ export function RegisterWeather() {
                 </select>
               </div>
               <div className="fields-weather">
-                <select className="select-weather" {...register("temperature")}>
+                <select
+                  className="select-weather"
+                  {...register("temperature-night")}
+                >
                   <option>Chuva</option>
                   <option>Tempestade</option>
                   <option>Limpo</option>
@@ -217,7 +235,7 @@ export function RegisterWeather() {
 
         <div className="btn">
           <Button onClick={cancel} label="Cancelar" />
-          <Button onClick={submit} label="Salvar" />
+          <Button onClick={onSubmit} label="Salvar" />
         </div>
       </form>
     </div>

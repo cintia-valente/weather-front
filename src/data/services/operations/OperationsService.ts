@@ -3,17 +3,12 @@ import { NightTimeEnum } from "../../../ui/enum/nightTimeEnum";
 import { Api } from "../ApiConfig";
 import { ApiException } from "../ErrorException";
 
-export interface City {
-  idCity: number;
-  name: string;
-}
-
 export interface WheaterData {
   idWheaterData: number;
-  city: City[];
+  idCity: number;
   date: Date;
-  dayTimeEnum: DayTimeEnum;
-  nightTimeEnum: NightTimeEnum;
+  dayTimeEnum: DayTimeEnum | null;
+  nightTimeEnum: NightTimeEnum | null;
   maxTemperature: number;
   minTemperature: number;
   precipitation: number;
@@ -34,6 +29,8 @@ const postWheater = async (
   payload: Omit<WheaterData, "idWheaterData">
 ): Promise<WheaterData | ApiException> => {
   try {
+    console.log(payload);
+
     const { data } = await Api().post("/register", payload);
     return data;
   } catch (error: any) {
