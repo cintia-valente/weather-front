@@ -55,30 +55,30 @@
 .table-column {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 20rem;
+    grid-column-gap: 21rem;
     font-weight: 600;
     width: 76rem;
 }
 
 .table-column>div:first-child {
-    margin-left: 3.5rem;
+    margin-left: 3rem;
 }
 
 .table-column>div:nth-child(2) {
-    margin-left: 1.2rem;
+    margin-left: 7rem;
 }
 
 .table-column>div:nth-child(3) {
-    padding-right: 10rem;
+    padding-right: 10.5rem;
 }
 
 .card-city {
     background: linear-gradient(360deg, #957DCD 29%, #523D7F 100%);
     border-radius: 0.93rem;
-    margin-left: 2rem;
+    margin-left: 1rem;
     margin-top: 1rem;
     margin-bottom: auto;
-    width: 71rem;
+    width: 72rem;
 }
 
 .city-weather {
@@ -129,6 +129,10 @@
         margin-top: 1rem;
     }
 
+    .weather-shift {
+        padding-left: 1rem;
+    }
+
     .column-list {
         width: 0rem;
         margin-bottom: 0rem;
@@ -140,16 +144,16 @@
         margin-left: 1rem;
     }
 
-    .table-column>div:first-child {
-        margin-left: 0.5rem;
+    .table-column>tr:first-child {
+        margin-left: 2rem;
     }
 
-    .table-column>div:nth-child(2) {
+    /* .table-column>div:nth-child(2) {
         margin-left: 4.2rem;
-    }
+    } */
 
     .table-column>div:nth-child(3) {
-        margin-left: 5rem;
+        margin-left: 3.2rem;
     }
 
     .card-city {

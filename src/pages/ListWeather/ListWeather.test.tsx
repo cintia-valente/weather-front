@@ -1,10 +1,10 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { ListWeather } from ".";
 
 describe("ListWeather Page", () => {
-  test("deve renderizar a página ListWeather", () => {
-    const { getByText } = render(<ListWeather />);
+  it("deve renderizar a página ListWeather", () => {
+    render(<ListWeather />);
 
-    expect(getByText("Lista de cidades")).toBeInTheDocument();
+    expect(screen.getByText("Lista de cidades")).toBeInTheDocument();
   });
 });

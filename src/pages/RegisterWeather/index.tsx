@@ -1,21 +1,13 @@
 import { useEffect, useState } from "react";
 import { Button } from "../../ui/components/Button";
 import "./index.css";
-import {
-  OperationsService,
-  WheaterData,
-} from "../../data/services/operations/OperationsService";
+import { OperationsService } from "../../data/services/operations/OperationsService";
 import { ApiException } from "../../data/services/ErrorException";
-import { DayTimeEnum } from "../../ui/enum/dayTimeEnum";
-import { NightTimeEnum } from "../../ui/enum/nightTimeEnum";
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
-export interface City {
-  idCity: number;
-  name: string;
-}
+import { City, WeatherData } from "../../data/services/interfaces";
 
 const validation = yup.object().shape({
   maxTemp: yup.string().required(),
@@ -37,8 +29,9 @@ export function RegisterWeather() {
     OperationsService.getCity().then((result) => {
       if (result instanceof ApiException) {
         alert(result.message);
+        console.log(result.message);
       } else {
-        setCities(cities.concat(result));
+        setCities(result);
       }
     });
   }, []);
@@ -60,7 +53,7 @@ export function RegisterWeather() {
   };
 
   const onSubmit = async () => {
-    OperationsService.postWheater({
+    OperationsService.postWeather({
       idCity: parseInt(selectedCity),
       date: new Date(formData.date + "T00:00:00.000Z"),
       dayTimeEnum: data.dayTimeEnum,

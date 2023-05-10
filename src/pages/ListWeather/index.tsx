@@ -2,11 +2,42 @@ import "./index.css";
 import editIcon from "../../assets/edit.svg";
 import deleteIcon from "../../assets/delete.svg";
 import searchList from "../../assets/search-city.svg";
-interface State {
-  state: string;
-}
+import { useEffect, useState } from "react";
+import { OperationsService } from "../../data/services/operations/OperationsService";
+import { ApiException } from "../../data/services/ErrorException";
+import { WeatherDataNameCity } from "../../data/services/interfaces";
 
 export function ListWeather() {
+  const [weatherData, setWeathers] = useState<WeatherDataNameCity[]>([]);
+  const [cityId, setCityId] = useState<number>(0);
+
+  useEffect(() => {
+    OperationsService.getWeather().then((result) => {
+      if (result instanceof ApiException) {
+        alert(result.message);
+      } else {
+        setWeathers(result);
+      }
+    });
+  }, []);
+
+  // const handleCitySubmit = async () => {
+  //   if (cityId) {
+  //     OperationsService.getWeathersByCity(cityId).then((result) => {
+  //       if (result instanceof ApiException) {
+  //         alert(result.message);
+  //       } else {
+  //         setWeathers(weatherData);
+  //       }
+  //     });
+  //   }
+  // };
+
+  // const handleCityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const value = event.target.value;
+  //   setCityId(parseInt(value));
+  // };
+
   return (
     <div className="list">
       <div>
@@ -22,89 +53,30 @@ export function ListWeather() {
 
       <div className="table-list">
         <table className="column-list">
-          <div className="table-column">
-            <div>Cidade</div>
-            <div>Data</div>
-            <div>Ação</div>
-          </div>
-
-          <div className="card-city">
-            <tr className="city-weather">
-              <td>Porto Alegre</td>
-              <td>31/03/2023</td>
-              <td>
-                <div>
-                  <img className="editIcon" src={editIcon} />
-                  <img className="deleteIcon" src={deleteIcon} />
-                </div>
-              </td>
+          <thead>
+            <tr className="table-column">
+              <th>Cidade</th>
+              <th>Data</th>
+              <th>Ação</th>
             </tr>
-          </div>
+          </thead>
 
-          <div className="card-city">
-            <tr className="city-weather">
-              <td>Gramado</td>
-              <td>31/03/2023</td>
-              <td>
-                <div>
-                  <img className="editIcon" src={editIcon} />
-                  <img className="deleteIcon" src={deleteIcon} />
-                </div>
-              </td>
-            </tr>
-          </div>
-
-          <div className="card-city">
-            <tr className="city-weather">
-              <td>Los Angeles</td>
-              <td>28/03/2023</td>
-              <td>
-                <div>
-                  <img className="editIcon" src={editIcon} />
-                  <img className="deleteIcon" src={deleteIcon} />
-                </div>
-              </td>
-            </tr>
-          </div>
-
-          <div className="card-city">
-            <tr className="city-weather">
-              <td>Rio de Janeiro</td>
-              <td>15/01/2023</td>
-              <td>
-                <div>
-                  <img className="editIcon" src={editIcon} />
-                  <img className="deleteIcon" src={deleteIcon} />
-                </div>
-              </td>
-            </tr>
-          </div>
-
-          <div className="card-city">
-            <tr className="city-weather">
-              <td>São Paulo</td>
-              <td>10/01/2023</td>
-              <td>
-                <div>
-                  <img className="editIcon" src={editIcon} />
-                  <img className="deleteIcon" src={deleteIcon} />
-                </div>
-              </td>
-            </tr>
-          </div>
-
-          <div className="card-city">
-            <tr className="city-weather">
-              <td>Floripa</td>
-              <td>02/01/2023</td>
-              <td>
-                <div>
-                  <img className="editIcon" src={editIcon} />
-                  <img className="deleteIcon" src={deleteIcon} />
-                </div>
-              </td>
-            </tr>
-          </div>
+          <tbody>
+            {weatherData.map((data) => (
+              <div className="card-city">
+                <tr key={data.idWheaterData} className="city-weather">
+                  <td>{data.city.name}</td>
+                  <td>{new Date(data.date).toLocaleDateString()}</td>
+                  <td>
+                    <div>
+                      <img className="editIcon" src={editIcon} />
+                      <img className="deleteIcon" src={deleteIcon} />
+                    </div>
+                  </td>
+                </tr>
+              </div>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>

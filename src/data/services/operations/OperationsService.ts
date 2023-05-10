@@ -1,20 +1,6 @@
-import { DayTimeEnum } from "../../../ui/enum/dayTimeEnum";
-import { NightTimeEnum } from "../../../ui/enum/nightTimeEnum";
 import { Api } from "../ApiConfig";
 import { ApiException } from "../ErrorException";
-
-export interface WheaterData {
-  idWheaterData: number;
-  idCity: number;
-  date: Date;
-  dayTimeEnum: DayTimeEnum | null;
-  nightTimeEnum: NightTimeEnum | null;
-  maxTemperature: number;
-  minTemperature: number;
-  precipitation: number;
-  humidity: number;
-  windSpeed: number;
-}
+import { WeatherData } from "../interfaces";
 
 const getCity = async () => {
   try {
@@ -25,12 +11,19 @@ const getCity = async () => {
   }
 };
 
-const postWheater = async (
-  payload: Omit<WheaterData, "idWheaterData">
-): Promise<WheaterData | ApiException> => {
+const getWeather = async () => {
   try {
-    console.log(payload);
+    const { data } = await Api().get("/list-all");
+    return data;
+  } catch (error: any) {
+    return new ApiException(error.message || "Erro ao consultar a API.");
+  }
+};
 
+const postWeather = async (
+  payload: Omit<WeatherData, "idWheaterData">
+): Promise<WeatherData | ApiException> => {
+  try {
     const { data } = await Api().post("/register", payload);
     return data;
   } catch (error: any) {
@@ -38,22 +31,26 @@ const postWheater = async (
   }
 };
 
-// const getCityByState = async (selectedState: WheaterData["state"]) => {
-//   try {
-//     const { data } = await Api().get(`/city/${selectedState}/all-cities`);
-//     return data;
-//   } catch (error: any) {
-//     return new ApiException(error.message || "Erro ao consultar a API.");
-//   }
-// };
+const getWeathersByCity = async (
+  cityId: number
+): Promise<WeatherData[] | ApiException> => {
+  try {
+    const { data } = await Api().get(`/weather/${cityId}/list-all`);
+    return data;
+  } catch (error: any) {
+    return new ApiException(error.message || "Erro ao consultar a API.");
+  }
+};
 
 const updateById = () => {};
 const deleteById = () => {};
 
 export const OperationsService = {
   getCity,
+  getWeather,
   //  getCityByState,
-  postWheater,
+  getWeathersByCity,
+  postWeather,
   updateById,
   deleteById,
 };
