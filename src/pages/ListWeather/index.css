@@ -55,21 +55,21 @@
 .table-column {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 21rem;
+    grid-column-gap: 18rem;
     font-weight: 600;
     width: 76rem;
 }
 
-.table-column>div:first-child {
-    margin-left: 3rem;
+.col-city {
+    margin-right: 5.5rem;
 }
 
-.table-column>div:nth-child(2) {
-    margin-left: 7rem;
+.col-date {
+    margin-right: 10rem;
 }
 
-.table-column>div:nth-child(3) {
-    padding-right: 10.5rem;
+.col-action {
+    margin-right: 10rem;
 }
 
 .card-city {
@@ -139,21 +139,9 @@
     }
 
     .table-column {
-        grid-column-gap: 0rem;
+        gap: 43rem;
         width: 15rem;
         margin-left: 1rem;
-    }
-
-    .table-column>tr:first-child {
-        margin-left: 2rem;
-    }
-
-    /* .table-column>div:nth-child(2) {
-        margin-left: 4.2rem;
-    } */
-
-    .table-column>div:nth-child(3) {
-        margin-left: 3.2rem;
     }
 
     .card-city {

@@ -9,7 +9,6 @@ import { WeatherDataNameCity } from "../../data/services/interfaces";
 
 export function ListWeather() {
   const [weatherData, setWeathers] = useState<WeatherDataNameCity[]>([]);
-  const [cityId, setCityId] = useState<number>(0);
 
   useEffect(() => {
     OperationsService.getWeather().then((result) => {
@@ -20,23 +19,6 @@ export function ListWeather() {
       }
     });
   }, []);
-
-  // const handleCitySubmit = async () => {
-  //   if (cityId) {
-  //     OperationsService.getWeathersByCity(cityId).then((result) => {
-  //       if (result instanceof ApiException) {
-  //         alert(result.message);
-  //       } else {
-  //         setWeathers(weatherData);
-  //       }
-  //     });
-  //   }
-  // };
-
-  // const handleCityChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const value = event.target.value;
-  //   setCityId(parseInt(value));
-  // };
 
   return (
     <div className="list">
@@ -55,9 +37,9 @@ export function ListWeather() {
         <table className="column-list">
           <thead>
             <tr className="table-column">
-              <th>Cidade</th>
-              <th>Data</th>
-              <th>Ação</th>
+              <th className="col-city">Cidade</th>
+              <th className="col-date">Data</th>
+              <th className="col-action">Ação</th>
             </tr>
           </thead>
 
@@ -66,7 +48,14 @@ export function ListWeather() {
               <div className="card-city">
                 <tr key={data.idWheaterData} className="city-weather">
                   <td>{data.city.name}</td>
-                  <td>{new Date(data.date).toLocaleDateString()}</td>
+                  <td>
+                    {new Date(data.date)
+                      .toISOString()
+                      .slice(0, 10)
+                      .split("-")
+                      .reverse()
+                      .join("/")}
+                  </td>
                   <td>
                     <div>
                       <img className="editIcon" src={editIcon} />
