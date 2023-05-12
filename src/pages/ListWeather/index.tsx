@@ -5,10 +5,10 @@ import searchList from "../../assets/search-city.svg";
 import { useEffect, useState } from "react";
 import { OperationsService } from "../../data/services/operations/OperationsService";
 import { ApiException } from "../../data/services/ErrorException";
-import { WeatherDataNameCity } from "../../data/services/interfaces";
+import { WeatherData } from "../../data/services/interfaces";
 
 export function ListWeather() {
-  const [weatherData, setWeathers] = useState<WeatherDataNameCity[]>([]);
+  const [weatherData, setWeathers] = useState<WeatherData[]>([]);
 
   useEffect(() => {
     OperationsService.getWeather().then((result) => {
@@ -46,7 +46,7 @@ export function ListWeather() {
           <tbody>
             {weatherData.map((data) => (
               <div className="card-city">
-                <tr key={data.idWheaterData} className="city-weather">
+                <tr key={data.idWeatherData} className="city-weather">
                   <td>{data.city.name}</td>
                   <td>
                     {new Date(data.date)

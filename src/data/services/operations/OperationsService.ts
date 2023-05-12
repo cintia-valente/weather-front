@@ -21,7 +21,7 @@ const getWeather = async () => {
 };
 
 const postWeather = async (
-  payload: Omit<WeatherData, "idWheaterData">
+  payload: WeatherData
 ): Promise<WeatherData | ApiException> => {
   try {
     const { data } = await Api().post("/register", payload);

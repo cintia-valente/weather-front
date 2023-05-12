@@ -3,6 +3,6 @@ export enum DayTimeEnum {
   NEVE = "NEVE",
   NUBLADO = "NUBLADO",
   SOL = "SOL",
-  SOL_COM_NUVENS = "SOL_COM_NUVENS",
+  SOLCOMNUVENS = "SOL COM NUVENS",
   TEMPESTADE = "TEMPESTADE",
 }
