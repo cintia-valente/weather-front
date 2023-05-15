@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Button } from "../../ui/components/Button";
 import "./index.css";
 import { OperationsService } from "../../data/services/operations/OperationsService";
@@ -47,6 +47,18 @@ export function RegisterWeather() {
   const [cities, setCities] = useState<City[]>([]);
   const [selectedCity, setSelectedCity] = useState<City>();
 
+  const [weather, setWeathers] = useState<WeatherData>({
+    city: selectedCity ? selectedCity : { idCity: 0, name: "" },
+    date: new Date(),
+    dayTimeEnum: "",
+    nightTimeEnum: "",
+    maxTemperature: 0,
+    minTemperature: 0,
+    humidity: 0,
+    precipitation: 0,
+    windSpeed: 0,
+  });
+
   useEffect(() => {
     OperationsService.getCity().then((result) => {
       if (result instanceof ApiException) {
@@ -57,8 +69,6 @@ export function RegisterWeather() {
     });
   }, []);
 
-  let weather: WeatherData;
-
   const submit = (weather: WeatherData) => {
     if (!selectedCity) {
       return;
@@ -67,10 +77,8 @@ export function RegisterWeather() {
     const formWeather: WeatherData = {
       city: selectedCity,
       date: weather.date,
-      dayTimeEnum: weather.dayTimeEnum
-        .replace(/ /g, "_")
-        .toUpperCase() as DayTimeEnum,
-      nightTimeEnum: weather.nightTimeEnum.toUpperCase() as NightTimeEnum,
+      dayTimeEnum: weather.dayTimeEnum.replace(/ /g, "_").toUpperCase(),
+      nightTimeEnum: weather.nightTimeEnum.toUpperCase(),
       maxTemperature: weather.maxTemperature,
       minTemperature: weather.minTemperature,
       humidity: weather.humidity,
@@ -80,7 +88,6 @@ export function RegisterWeather() {
 
     OperationsService.postWeather(formWeather).then((result) => {
       console.log(formWeather);
-
       if (result instanceof ApiException) {
         alert(result.message);
       } else {
@@ -104,14 +111,14 @@ export function RegisterWeather() {
             <div>
               <select
                 className="select-register"
+                defaultValue=""
                 data-testid="city-select"
                 {...register("city")}
                 onChange={(e) =>
                   setSelectedCity(cities.find((c) => c.name === e.target.value))
                 }
-                required
               >
-                <option value="" disabled selected>
+                <option value="" disabled>
                   Selecione uma cidade
                 </option>
                 {cities.map((item) => (
@@ -131,7 +138,14 @@ export function RegisterWeather() {
                 className="input-date"
                 type="date"
                 {...register("date")}
-                required
+                onChange={(e) =>
+                  setWeathers({
+                    ...weather,
+                    date: e.target.value
+                      ? new Date(e.target.value)
+                      : new Date(),
+                  })
+                }
               />
             </div>
           </div>
@@ -146,6 +160,12 @@ export function RegisterWeather() {
                   className="select-weather"
                   data-testid="fields-select"
                   {...register("dayTimeEnum")}
+                  onChange={(e) =>
+                    setWeathers({
+                      ...weather,
+                      dayTimeEnum: e.target.value,
+                    })
+                  }
                 >
                   <option>Chuva</option>
                   <option>Tempestade</option>
@@ -159,6 +179,12 @@ export function RegisterWeather() {
                 <select
                   className="select-weather"
                   {...register("nightTimeEnum")}
+                  onChange={(e) =>
+                    setWeathers({
+                      ...weather,
+                      nightTimeEnum: e.target.value,
+                    })
+                  }
                 >
                   <option>Chuva</option>
                   <option>Tempestade</option>
@@ -186,6 +212,12 @@ export function RegisterWeather() {
                   className="input-temp"
                   type="number"
                   {...register("maxTemperature")}
+                  onChange={(e) =>
+                    setWeathers({
+                      ...weather,
+                      maxTemperature: parseInt(e.target.value),
+                    })
+                  }
                 ></input>
                 <p className="error-message">
                   {errors.maxTemperature?.message}
@@ -202,6 +234,12 @@ export function RegisterWeather() {
                     className="input-temp"
                     type="number"
                     {...register("precipitation")}
+                    onChange={(e) =>
+                      setWeathers({
+                        ...weather,
+                        precipitation: parseInt(e.target.value),
+                      })
+                    }
                   ></input>
                   <p className="error-message">
                     {errors.precipitation?.message}
@@ -215,6 +253,12 @@ export function RegisterWeather() {
                     className="input-temp"
                     type="number"
                     {...register("humidity")}
+                    onChange={(e) =>
+                      setWeathers({
+                        ...weather,
+                        humidity: parseInt(e.target.value),
+                      })
+                    }
                   ></input>
                   <p className="error-message">{errors.humidity?.message} </p>
                 </div>
@@ -230,6 +274,12 @@ export function RegisterWeather() {
                   className="input-temp"
                   type="number"
                   {...register("minTemperature")}
+                  onChange={(e) =>
+                    setWeathers({
+                      ...weather,
+                      minTemperature: parseInt(e.target.value),
+                    })
+                  }
                 ></input>
                 <p className="error-message">
                   {errors.minTemperature?.message}{" "}
@@ -245,6 +295,12 @@ export function RegisterWeather() {
                     className="input-temp"
                     type="number"
                     {...register("windSpeed")}
+                    onChange={(e) =>
+                      setWeathers({
+                        ...weather,
+                        windSpeed: parseInt(e.target.value),
+                      })
+                    }
                   ></input>
                   <p className="error-message">{errors.windSpeed?.message} </p>
                 </div>
@@ -254,8 +310,8 @@ export function RegisterWeather() {
         </div>
 
         <div className="btn">
-          <Button onClick={cancel} label="Cancelar" />
-          <Button onClick={() => submit(weather)} label="Salvar" />
+          <Button label="Cancelar" type="button" onClick={cancel} />
+          <Button label="Salvar" type="submit" />
         </div>
       </form>
     </div>

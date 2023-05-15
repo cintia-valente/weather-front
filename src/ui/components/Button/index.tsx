@@ -1,13 +1,13 @@
 import "./index.css";
 interface ButtonProps {
-  onClick: () => void;
   label: string;
-  cancel?: boolean;
+  type: "submit" | "button";
+  onClick?: () => void;
 }
 
-export function Button({ onClick, label, cancel }: ButtonProps) {
+export function Button({ label, type, onClick }: ButtonProps) {
   return (
-    <button className="btn-register" onClick={onClick}>
+    <button className="btn-register" type={type} onClick={onClick}>
       {label}
     </button>
   );

@@ -32,23 +32,31 @@ const postWeather = async (
 };
 
 const getWeathersByCity = async (
-  cityId: number
+  city: string
 ): Promise<WeatherData[] | ApiException> => {
   try {
-    const { data } = await Api().get(`/weather/${cityId}/list-all`);
-    return data;
+    const { data } = await Api().get("/weather", { params: { q: city } });
+    return data.list;
   } catch (error: any) {
     return new ApiException(error.message || "Erro ao consultar a API.");
   }
 };
 
 const updateById = () => {};
-const deleteById = () => {};
+
+const deleteById = async (
+  idWeather: number
+): Promise<undefined | ApiException> => {
+  try {
+    await Api().delete(`/${idWeather}`);
+  } catch (error: any) {
+    return new ApiException(error.message || "Erro ao apagar o registro.");
+  }
+};
 
 export const OperationsService = {
   getCity,
   getWeather,
-  //  getCityByState,
   getWeathersByCity,
   postWeather,
   updateById,

@@ -9,6 +9,7 @@ import { WeatherData } from "../../data/services/interfaces";
 
 export function ListWeather() {
   const [weatherData, setWeathers] = useState<WeatherData[]>([]);
+  const [cityFilter, setCityFilter] = useState("");
 
   useEffect(() => {
     OperationsService.getWeather().then((result) => {
@@ -20,6 +21,40 @@ export function ListWeather() {
     });
   }, []);
 
+  const getByCity = async () => {
+    const result = await OperationsService.getWeathersByCity(cityFilter);
+    if (result instanceof ApiException) {
+      alert(result.message);
+    } else {
+      setWeathers(result);
+    }
+  };
+
+  const handleCityFilterChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCityFilter(event.target.value);
+  };
+
+  const filteredWeatherData = weatherData.filter((data) => {
+    const cityName = data.city.name.toLowerCase();
+    const filterValue = cityFilter.toLowerCase();
+    return cityName.includes(filterValue);
+  });
+
+  const deleteWeather = (idWeather: number) => {
+    OperationsService.deleteById(idWeather).then((result) => {
+      if (result instanceof ApiException) {
+        alert(result.message);
+      } else {
+        setWeathers((item: WeatherData[]) => {
+          return item.filter((item) => item.idWeatherData !== idWeather);
+        });
+        alert("Excluído com sucesso!");
+      }
+    });
+  };
+
   return (
     <div className="list">
       <div>
@@ -27,8 +62,11 @@ export function ListWeather() {
         <div className="label-input">
           <label className="text-city">Cidade</label>
           <div className="img-search">
-            <input className="search-input"></input>
-            <img src={searchList} height="40px" />
+            <input
+              className="search-input"
+              onChange={handleCityFilterChange}
+            ></input>
+            <img src={searchList} height="40px" onClick={getByCity} />
           </div>
         </div>
       </div>
@@ -44,7 +82,7 @@ export function ListWeather() {
           </thead>
 
           <tbody>
-            {weatherData.map((data) => (
+            {filteredWeatherData.map((data) => (
               <div className="card-city">
                 <tr key={data.idWeatherData} className="city-weather">
                   <td>{data.city.name}</td>
@@ -59,7 +97,11 @@ export function ListWeather() {
                   <td>
                     <div>
                       <img className="editIcon" src={editIcon} />
-                      <img className="deleteIcon" src={deleteIcon} />
+                      <img
+                        className="deleteIcon"
+                        src={deleteIcon}
+                        onClick={() => deleteWeather(data.idWeatherData ?? 0)}
+                      />
                     </div>
                   </td>
                 </tr>
