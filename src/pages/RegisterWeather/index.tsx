@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../../ui/components/Button";
 import "./index.css";
 import { OperationsService } from "../../data/services/operations/OperationsService";
@@ -8,8 +8,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { City, WeatherData } from "../../data/services/interfaces";
-import { DayTimeEnum } from "../../ui/enum/dayTimeEnum";
-import { NightTimeEnum } from "../../ui/enum/nightTimeEnum";
 
 const customMessages = {
   mixed: {
@@ -77,7 +75,7 @@ export function RegisterWeather() {
     const formWeather: WeatherData = {
       city: selectedCity,
       date: weather.date,
-      dayTimeEnum: weather.dayTimeEnum.replace(/ /g, "_").toUpperCase(),
+      dayTimeEnum: weather.dayTimeEnum.toUpperCase(),
       nightTimeEnum: weather.nightTimeEnum.toUpperCase(),
       maxTemperature: weather.maxTemperature,
       minTemperature: weather.minTemperature,
@@ -169,7 +167,7 @@ export function RegisterWeather() {
                 >
                   <option>Chuva</option>
                   <option>Tempestade</option>
-                  <option>Sol com nuves</option>
+                  <option value="SOL_COM_NUVENS">Sol com nuves</option>
                   <option>Sol</option>
                   <option>Nublado</option>
                   <option>Neve</option>

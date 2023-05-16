@@ -1,6 +1,3 @@
-import { DayTimeEnum } from "../../../ui/enum/dayTimeEnum";
-import { NightTimeEnum } from "../../../ui/enum/nightTimeEnum";
-
 export interface City {
   idCity: number;
   name: string;
