@@ -7,7 +7,9 @@ const getCity = async () => {
     const { data } = await Api().get("/cities/all");
     return data;
   } catch (error: any) {
-    return new ApiException(error.message || "Erro ao consultar a API.");
+    return new ApiException(
+      error.message || "Erro ao carregar a lista de cidades."
+    );
   }
 };
 
