@@ -30,7 +30,7 @@ Você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git]
 
 
 ## Features
-- [x] Pesquisa de previsão metereolólica a partir do nome da cidade 
+- [x] Pesquisa de previsão metereológica a partir do nome da cidade 
 - [x] Apresentação da previsão metereológica do dia atual
 - [x] Apresentação da previsão metereológica dos próximos 07 dias
 - [x] Apresentação de uma lista de previsão metereológica cadastradas
